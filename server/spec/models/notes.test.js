@@ -19,6 +19,5 @@ describe(Note, () => {
     expect(note.title).toBe("Title");
     expect(note.description).toBe("Description");
     expect(note.date).toBe("13/06/22")
-
   })
 })

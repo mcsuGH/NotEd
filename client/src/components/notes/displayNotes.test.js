@@ -1,10 +1,10 @@
 import React from "react";
-import Notes from "./notes";
+import Notes from "./displayNotes";
 import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
 
-describe("Notes", () => {
+describe("Display Notes", () => {
   it("Displays the notes with the title, description and date", () => {
     const notesFromApi = [
         {title: "hi", description: "bye", date: "13/06/22"},
