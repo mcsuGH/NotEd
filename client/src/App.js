@@ -16,8 +16,8 @@ export default function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<CreateNotes url={url}/>} />
-        <Route path="/notes" element={<CreateNotes url={url}/>} />
+        <Route path="/" element={<Notes url={url}/>} />
+        <Route path="/notes" element={<Notes url={url}/>} />
       </Routes>
     </div>
   );
