@@ -13,7 +13,7 @@ export default function CreateNotes() {
   };
 
   const handleSubmit = () => {
-    fetch("http://localhost:9000/notes/create", {
+    fetch("http://localhost:9000/server/notes/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -26,6 +26,7 @@ export default function CreateNotes() {
 
   return (
     <div className="form">
+      Create Note:
       <form onSubmit={handleSubmit}>
         <input
           aria-label="title"

@@ -23,8 +23,8 @@ app.use(
   })
 );
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/notes', notesRouter);
+app.use('/server', indexRouter);
+app.use('/server/users', usersRouter);
+app.use('/server/notes', notesRouter);
 
 module.exports = app;

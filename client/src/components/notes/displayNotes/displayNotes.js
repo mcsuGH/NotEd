@@ -16,14 +16,29 @@ export default function DisplayNotes({ notes }) {
     )
   }
 
+  const checkNotes = () => {
+    if (!notes || notes.length === 0 ) {
+      return (
+        <div>You have no notes</div>
+      )
+    } else {
+      return (
+        <div>
+          Your Notes:
+          {notes.map((noteInfo, key) => {
+            return (
+              displayNote(noteInfo, key)
+            )
+          })}
+        </div>
+      )
+    }
+  }
+
   return (
     <div>
       <div className="notes">
-        {notes.map((noteInfo, key) => {
-          return (
-            displayNote(noteInfo, key)
-          )
-        })}
+        {checkNotes()}
       </div>
     </div>
   )

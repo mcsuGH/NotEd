@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import DisplayNotes from "./displayNotes";
-import CreateNotes from "./createNotes";
+import DisplayNotes from "./displayNotes/displayNotes";
+import CreateNotes from "./createNotes/createNotes";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -10,7 +10,7 @@ export default function Notes() {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:9000/notes"
+      url: "http://localhost:9000/server/notes"
     }).then((res) => {
       setNotes(res.data.notes);
     });

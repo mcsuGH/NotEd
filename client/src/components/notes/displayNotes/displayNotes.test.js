@@ -1,5 +1,5 @@
 import React from "react";
-import Notes from "./displayNotes";
+import DisplayNotes from "./displayNotes";
 import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
@@ -9,9 +9,14 @@ describe("Display Notes", () => {
     const notesFromApi = [
         {title: "hi", description: "bye", date: "13/06/22"},
     ];
-    render(<Notes notes={notesFromApi}/>)
+    render(<DisplayNotes notes={notesFromApi}/>)
     expect(screen.getByText("hi")).toBeInTheDocument();
     expect(screen.getByText("bye")).toBeInTheDocument();
     expect(screen.getByText("13/06/22")).toBeInTheDocument();
+  })
+
+  it("when there are no notes, it says there are no notes", () => {
+    render(<DisplayNotes notes={[]}/>)
+    expect(screen.getByText("You have no notes")).toBeInTheDocument();
   })
 })

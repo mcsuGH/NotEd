@@ -1,6 +1,6 @@
 import React from "react";
 import CreateNotes from "./createNotes";
-import { render, screen, cleanup, } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 
 afterEach(cleanup);
 
@@ -11,6 +11,8 @@ describe("Create Notes", () => {
     const titleEl = screen.getByLabelText("title");
     expect(titleEl.value).toBe("");
     expect(titleEl.placeholder).toBe("Title");
+    fireEvent.change(titleEl, { target: { value: "Test" }});
+    expect(titleEl.value).toBe("Test");
 
     const descriptionEl = screen.getByLabelText("description");
     expect(descriptionEl.value).toBe("");
@@ -20,3 +22,8 @@ describe("Create Notes", () => {
     expect(submitEl).toBeInTheDocument();
   });
 });
+
+// const inputFirstName = screen.getByRole('textbox', {name: 'First Name'})
+// expect(inputFirstName).toBeInTheDocument()
+// fireEvent.change(inputFirstName, { target: { value: newValue }});
+// expect(inputFirstName.value).toBe(newValue);
