@@ -1,0 +1,24 @@
+{
+  "name": "noted",
+  "version": "1.0.0",
+  "description": "![Screenshot](https://i.imgur.com/SvfX0Zm.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && node ./bin/www",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "test-unit": "cd server && npx jest",
+    "test-client": "cd client && npm test",
+    "test": "npm run test-unit && npm run test-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcsuGH/NotEd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcsuGH/NotEd/issues"
+  },
+  "homepage": "https://github.com/mcsuGH/NotEd#readme"
+}
