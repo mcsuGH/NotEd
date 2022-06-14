@@ -17,13 +17,10 @@ describe("Create Notes", () => {
     const descriptionEl = screen.getByLabelText("description");
     expect(descriptionEl.value).toBe("");
     expect(descriptionEl.placeholder).toBe("Description");
+    fireEvent.change(descriptionEl, { target: { value: "Test" }});
+    expect(descriptionEl.value).toBe("Test");
 
     const submitEl = screen.getByRole("button", { name: "Submit" });
     expect(submitEl).toBeInTheDocument();
   });
 });
-
-// const inputFirstName = screen.getByRole('textbox', {name: 'First Name'})
-// expect(inputFirstName).toBeInTheDocument()
-// fireEvent.change(inputFirstName, { target: { value: newValue }});
-// expect(inputFirstName.value).toBe(newValue);
