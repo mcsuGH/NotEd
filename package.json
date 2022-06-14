@@ -2,7 +2,7 @@
   "name": "noted",
   "version": "1.0.0",
   "description": "![Screenshot](https://i.imgur.com/SvfX0Zm.png)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "install": "cd server && npm install",
     "start": "cd server && node ./bin/www",
