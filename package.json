@@ -1,25 +1,28 @@
 {
-  "name": "noted",
-  "version": "1.0.0",
-  "description": "![Screenshot](https://i.imgur.com/SvfX0Zm.png)",
+  "name": "server",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "install": "cd server && npm install",
-    "start": "cd server && node ./bin/www",
+    "start": "nodemon ./bin/www",
+    "start-dev": "NODE_ENV=development nodemon ./bin/www",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "test-unit": "cd server && npx jest",
+    "test-unit": "npx jest spec",
     "test-client": "cd client && npm test",
     "test": "npm run test-unit && npm run test-client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mcsuGH/NotEd.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mcsuGH/NotEd/issues"
-  },
-  "homepage": "https://github.com/mcsuGH/NotEd#readme"
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.3.8",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "stripe": "^9.8.0"
+  }
 }
