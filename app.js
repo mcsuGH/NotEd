@@ -29,4 +29,8 @@ app.use('/server', indexRouter);
 app.use('/server/users', usersRouter);
 app.use('/server/notes', notesRouter);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 module.exports = app;
