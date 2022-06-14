@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import './App.css';
 
 import Notes from "./components/notes/notes"
-import CreateNotes from "./components/notes/createNotes/createNotes"
 
 export default function App() {
   let url;
