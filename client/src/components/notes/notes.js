@@ -7,10 +7,10 @@ export default function Notes( {url} ) {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:9000/server/notes").then((res) => {
+    axios.get(`${url}/server/notes`).then((res) => {
       setNotes(res.data.notes);
     });
-  }, [setNotes])
+  }, [setNotes, url])
 
   return (
     <div>
