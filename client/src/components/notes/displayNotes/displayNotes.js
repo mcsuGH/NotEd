@@ -1,4 +1,9 @@
+import dayjs from 'dayjs';
+
 export default function DisplayNotes({ notes }) {
+  const formatDate = (date) => {
+    return dayjs(date).format("DD/MM/YY")
+  }
 
   const displayNote = (noteInfo, key) => {
     return (
@@ -10,7 +15,7 @@ export default function DisplayNotes({ notes }) {
           {noteInfo.description}
         </div>
         <div className="noteDate">
-          {noteInfo.date}
+          {formatDate(noteInfo.createdAt)}
         </div>
       </div>
     )

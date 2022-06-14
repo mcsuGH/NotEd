@@ -9,15 +9,13 @@ describe(Note, () => {
     });
   });
 
-  it("has a title, description, date", () => {
+  it("has a title, description, date created at", () => {
     const note = new Note({
       title: "Title",
       description: "Description",
-      date: "13/06/22"
     });
 
     expect(note.title).toBe("Title");
     expect(note.description).toBe("Description");
-    expect(note.date).toBe("13/06/22")
   })
 })

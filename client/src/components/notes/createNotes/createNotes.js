@@ -14,7 +14,7 @@ export default function CreateNotes( {url} ) {
   };
 
   const handleSubmit = () => {
-    const newNote = { title: title, description: description, date: "13/06/22"}
+    const newNote = { title: title, description: description }
     axios.post(`${url}/server/notes/create`, newNote);
   };
 

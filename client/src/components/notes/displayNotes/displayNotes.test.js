@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("Display Notes", () => {
   it("Displays the notes with the title, description and date", () => {
     const notesFromApi = [
-        {title: "hi", description: "bye", date: "13/06/22"},
+        {title: "hi", description: "bye", createdAt: new Date(2022, 5, 13)},
     ];
     render(<DisplayNotes notes={notesFromApi}/>)
     expect(screen.getByText("hi")).toBeInTheDocument();
