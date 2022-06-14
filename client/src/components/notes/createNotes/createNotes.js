@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-export default function CreateNotes() {
+export default function CreateNotes( {url} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -13,15 +14,8 @@ export default function CreateNotes() {
   };
 
   const handleSubmit = () => {
-    fetch("http://localhost:9000/server/notes/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title,
-        description,
-        date: "13/06/22",
-      }),
-    });
+    const newNote = { title: title, description: description, date: "13/06/22"}
+    axios.post(`${url}/server/notes/create`, newNote);
   };
 
   return (
