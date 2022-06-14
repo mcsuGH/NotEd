@@ -4,7 +4,8 @@
   "description": "![Screenshot](https://i.imgur.com/SvfX0Zm.png)",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && npm install && node ./bin/www && cd ..",
+    "install": "cd server && npm install",
+    "start": "cd server && node ./bin/www",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "test-unit": "cd server && npx jest",
     "test-client": "cd client && npm test",
