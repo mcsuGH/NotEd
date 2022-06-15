@@ -26,14 +26,14 @@ export default function SignUp( {url} ) {
           aria-label="email"
           placeholder="Email"
           id="email"
-          type="text"
+          type="email"
           onChange={handleEmail}
         />
         <input
           aria-label="password"
           placeholder="Password"
           id="password"
-          type="text"
+          type="password"
           onChange={handlePassword}
         />
         <button

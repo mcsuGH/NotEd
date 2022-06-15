@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 const UsersController = {
   Index: (req, res) => {
@@ -6,18 +7,20 @@ const UsersController = {
   },
 
   Create: (req, res) => {
-    const userEmail = req.body.email;
-    const userPassword = req.body.password;
-    const user = new User({
-      email: userEmail,
-      password: userPassword,
-    });
-    user.save((err) => {
-      if (err) {
-        throw err;
+    User.findOne({ email: req.body.email }, async (err, doc) => {
+      if (err) throw err;
+      if (doc) res.send("User Already Exists");
+      if (!doc) {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const newUser = new User({
+          email: req.body.email,
+          password: hashedPassword,
+        });
+        
+        await newUser.save();
+        res.send("User Created");
       }
-      res.send("User created");
-    })
+    });
   }
 }
 
