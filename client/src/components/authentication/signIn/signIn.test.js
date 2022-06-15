@@ -6,7 +6,7 @@ afterEach(cleanup);
 
 describe("Sign In", () => {
   it("renders a form to log a user in", () => {
-    render(<SignIn />);
+    render(<SignIn user={{}}/>);
 
     const emailEl = screen.getByLabelText("email");
     expect(emailEl.value).toBe("");
@@ -20,7 +20,7 @@ describe("Sign In", () => {
     fireEvent.change(passwordEl, { target: { value: "Test" }});
     expect(passwordEl.value).toBe("Test");
 
-    const submitEl = screen.getByRole("button", { name: "Submit" });
+    const submitEl = screen.getByRole("button", { name: "Log In" });
     expect(submitEl).toBeInTheDocument();
   });
 });
