@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useState }  from "react";
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -14,10 +14,12 @@ export default function App() {
     url = "http://localhost:9000";
   }
 
+  const [user, setUser] = useState({});
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<SignIn url={url}/>} />
+        <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url}/>} />
       </Routes>

@@ -1,54 +1,40 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function SignUp( {url} ) {
+export default function SignIn( { url, setUser, user } ) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmail = ({ target }) => {
-    setEmail(target.value);
-  };
-
-  const handlePassword = ({ target }) => {
-    setPassword(target.value);
-  };
-
   const handleSubmit = () => {
-    // const user = { email: email, password: password }
-    // axios.post(`${url}/server/sessions`, user, { withCredentials: true });
-    axios({
-      method: "POST",
-      data: {
-        username: email,
-        password: password,
-      },
-      withCredentials: true,
-      url: `${url}/server/sessions`,
-    })
+    const user = { username: email, password: password }
+    axios.post(`${url}/server/sessions`, user)
   };
 
   return (
     <div className="form">
+      {user.email}
       Login:
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           aria-label="email"
           placeholder="Email"
           id="email"
           type="email"
-          onChange={handleEmail}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           aria-label="password"
           placeholder="Password"
           id="password"
           type="password"
-          onChange={handlePassword}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           type="submit"
+          name="action"
+          onClick={handleSubmit}
         >
-          Submit
+          Log In
         </button>
       </form>
     </div>
