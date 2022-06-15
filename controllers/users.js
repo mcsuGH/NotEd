@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const UsersController = {
   Index: (req, res) => {
-    res.send("user")
+    res.send(req.user);
   },
 
   Create: (req, res) => {
