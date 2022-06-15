@@ -2,6 +2,7 @@ import React  from "react";
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 
+import SignUp from "./components/authentication/signUp/signUp"
 import Notes from "./components/notes/notes"
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url}/>} />
       </Routes>
     </div>
