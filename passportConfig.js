@@ -5,7 +5,7 @@ const User = require("./models/user");
 module.exports = function (passport) {
   passport.use(
     new localStrategy((username, password, done) => {
-      User.findOne({ email: username }, function(err, user) {
+      User.findOne({ username: username }, function(err, user) {
         if (err) throw err;
         if (!user) return done(null, false);
 
@@ -29,7 +29,7 @@ module.exports = function (passport) {
     User.findOne({ _id: id }, (err, user) => {
       const userInformation = {
         id: user.id,
-        email: user.email,
+        username: user.username,
       };
       cb(err, userInformation);
     });

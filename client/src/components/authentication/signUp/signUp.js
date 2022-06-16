@@ -14,7 +14,7 @@ export default function SignUp( {url} ) {
   };
 
   const handleSubmit = () => {
-    const newUser = { email: email, password: password }
+    const newUser = { username: email, password: password }
     axios.post(`${url}/server/users/create`, newUser);
   };
 
