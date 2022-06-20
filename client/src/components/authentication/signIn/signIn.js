@@ -6,8 +6,13 @@ export default function SignIn( { url, setUser, user } ) {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    const user = { username: email, password: password }
-    axios.post(`${url}/server/sessions`, user)
+    const user = { 
+      username: email,
+      password: password,
+    }
+    axios.post(`${url}/server/sessions`, user, {
+      withCredentials: true,
+    })
   };
 
   return (

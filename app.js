@@ -14,6 +14,8 @@ var calendarRouter = require('./routes/calendarEvents')
 
 var app = express();
 
+var url = process.env.REACT_APP_HEROKU_URL || "http://localhost:3000";
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,7 +25,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 if (process.env.NODE_ENV === "development") {
   app.use(
     cors({
-      origin: "http://localhost:3000", // <-- location of the react app we're connecting to
+      origin: url, // <-- location of the react app we're connecting to
       credentials: true,
     })
   );
