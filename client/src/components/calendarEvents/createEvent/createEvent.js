@@ -21,27 +21,26 @@ export default function CreateEvent( {url} ) {
   return (
     <div className="form">
       Create Event:
-      <form onSubmit={handleSubmit}>
-        <input
-          aria-label="title"
-          placeholder="Title"
-          id="title"
-          type="text"
-          onChange={handleTitle}
-        />
-        <input
-          aria-label="description"
-          placeholder="Description"
-          id="description"
-          type="text"
-          onChange={handleDescription}
-        />
-        <button
-          type="submit"
-        >
-          Create
-        </button>
-      </form>
+      <input
+        aria-label="title"
+        placeholder="Title"
+        id="title"
+        type="text"
+        onChange={handleTitle}
+      />
+      <input
+        aria-label="description"
+        placeholder="Description"
+        id="description"
+        type="text"
+        onChange={handleDescription}
+      />
+      <button
+        type="submit"
+        onClick={handleSubmit}
+      >
+        Create
+      </button>
     </div>
   )
 }

@@ -21,27 +21,26 @@ export default function SignUp( {url} ) {
   return (
     <div className="form">
       Register:
-      <form onSubmit={handleSubmit}>
-        <input
-          aria-label="email"
-          placeholder="Email"
-          id="email"
-          type="email"
-          onChange={handleEmail}
-        />
-        <input
-          aria-label="password"
-          placeholder="Password"
-          id="password"
-          type="password"
-          onChange={handlePassword}
-        />
-        <button
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+      <input
+        aria-label="email"
+        placeholder="Email"
+        id="email"
+        type="email"
+        onChange={handleEmail}
+      />
+      <input
+        aria-label="password"
+        placeholder="Password"
+        id="password"
+        type="password"
+        onChange={handlePassword}
+      />
+      <button
+        type="submit"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
     </div>
   )
 }

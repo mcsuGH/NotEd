@@ -10,38 +10,40 @@ export default function SignIn( { url, setUser, user } ) {
       username: email,
       password: password,
     }
-    axios.post(`${url}/server/sessions`, user, {
-      withCredentials: true,
-    })
-  };
+    axios
+      .post(`${url}/server/sessions`, user, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setUser(res.data)
+      })
+  };  
 
   return (
     <div className="form">
-      {user.email}
+      {user.username}
       Login:
-      <form>
-        <input
-          aria-label="email"
-          placeholder="Email"
-          id="email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          aria-label="password"
-          placeholder="Password"
-          id="password"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          name="action"
-          onClick={handleSubmit}
-        >
-          Log In
-        </button>
-      </form>
+      <input
+        aria-label="email"
+        placeholder="Email"
+        id="email"
+        type="email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        aria-label="password"
+        placeholder="Password"
+        id="password"
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button
+        type="submit"
+        name="action"
+        onClick={handleSubmit}
+      >
+        Log In
+      </button>
     </div>
   )
 }

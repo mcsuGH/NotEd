@@ -21,27 +21,26 @@ export default function CreateNotes( {url} ) {
   return (
     <div className="form">
       Create Note:
-      <form onSubmit={handleSubmit}>
-        <input
-          aria-label="title"
-          placeholder="Title"
-          id="title"
-          type="text"
-          onChange={handleTitle}
-        />
-        <input
-          aria-label="description"
-          placeholder="Description"
-          id="description"
-          type="text"
-          onChange={handleDescription}
-        />
-        <button
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+      <input
+        aria-label="title"
+        placeholder="Title"
+        id="title"
+        type="text"
+        onChange={handleTitle}
+      />
+      <input
+        aria-label="description"
+        placeholder="Description"
+        id="description"
+        type="text"
+        onChange={handleDescription}
+      />
+      <button
+        type="submit"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import React, { useState }  from "react";
+import React, { useState, useEffect }  from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from 'axios'
 import './App.css';
 
 import SignIn from "./components/authentication/signIn/signIn"
@@ -16,6 +17,12 @@ export default function App() {
   }
 
   const [user, setUser] = useState({});
+
+  useEffect(() => {
+    axios
+    .get(`${url}/server/users`, { withCredentials: true }) 
+    .then((res) => setUser(res.data));
+  }, [url]);
 
   return (
     <div className="App">

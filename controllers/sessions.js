@@ -13,7 +13,7 @@ const SessionsController = {
           if (err) {
             throw err;
           }
-          res.send("Successfully logged in");
+          res.send(user);
         });
       }
     })(req, res, next);
