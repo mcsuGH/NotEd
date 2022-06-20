@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var notesRouter = require('./routes/notes');
 var sessionsRouter = require('./routes/sessions');
+var calendarRouter = require('./routes/calendarEvents')
 
 var app = express();
 
@@ -30,7 +31,7 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(
   session({
-    secret: "notedapp",
+    secret: "secretcode",
     resave: false,
     saveUninitialized: true,
   })
@@ -44,6 +45,7 @@ app.use('/server', indexRouter);
 app.use('/server/users', usersRouter);
 app.use('/server/notes', notesRouter);
 app.use('/server/sessions', sessionsRouter);
+app.use('/server/calendar', calendarRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));

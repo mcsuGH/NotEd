@@ -5,6 +5,7 @@ import './App.css';
 import SignIn from "./components/authentication/signIn/signIn"
 import SignUp from "./components/authentication/signUp/signUp"
 import Notes from "./components/notes/notes"
+import CreateEvent from "./components/calendarEvents/createEvent/createEvent"
 
 export default function App() {
   let url;
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url}/>} />
+        <Route path="/calendar" element={<CreateEvent url={url}/>} />
       </Routes>
     </div>
   );
