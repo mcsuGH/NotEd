@@ -11,11 +11,11 @@ describe(User, () => {
 
   it("has a email, password", () => {
     const user = new User({
-      email: "email",
+      username: "email",
       password: "password",
     });
 
-    expect(user.email).toBe("email");
+    expect(user.username).toBe("email");
     expect(user.password).toBe("password");
   })
 })
