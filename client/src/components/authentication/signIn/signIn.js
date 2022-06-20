@@ -10,9 +10,12 @@ export default function SignIn( { url, setUser, user } ) {
       username: email,
       password: password,
     }
-    axios.post(`${url}/server/sessions`, user, {
-      withCredentials: true,
-    })
+    axios
+      .post(`${url}/server/sessions`, user)
+      .then((res) => {
+        console.log(res.user)
+        setUser(res.user)
+      })
   };
 
   return (

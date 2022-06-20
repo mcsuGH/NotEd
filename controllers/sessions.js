@@ -1,22 +1,22 @@
-var passport = require('passport');
+const User = require("../models/user");
+const bcrypt = require("bcryptjs");
 
 const SessionsController = {
-  Login: (req, res, next) => {
-    console.log(req.body);
-    passport.authenticate("local", (err, user, info) => {
-      if (err) {
-        throw err;
-      }
-      if (!user) res.status(400).send("No such user exists");
-      else {
-        req.logIn(user, (err) => {
-          if (err) {
-            throw err;
+  Login: (req, res) => {
+    User.findOne({ username: req.body.username }, async (err, user) => {
+      if (err) throw err;
+      if (!user) res.send("User does not exist");
+      if (user) {
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
+          if (err) throw err;
+          if (result === true) {
+            res.send(user)
+          } else {
+            res.send("Wrong password")
           }
-          res.send("Successfully logged in");
         });
       }
-    })(req, res, next);
+    });
   },
 }
 
