@@ -13,17 +13,13 @@ describe(CalendarEvent, () => {
     const calendarEvent = new CalendarEvent({
       title: "Title",
       description: "Description",
-      day: "DD",
-      month: "MM",
-      year: "YY",
+      date: "DD-MM-YYYY",
       label: "label"
     });
 
     expect(calendarEvent.title).toBe("Title");
     expect(calendarEvent.description).toBe("Description");
-    expect(calendarEvent.day).toBe("DD");
-    expect(calendarEvent.month).toBe("MM");
-    expect(calendarEvent.year).toBe("YY");
+    expect(calendarEvent.date).toBe("DD-MM-YYYY")
     expect(calendarEvent.label).toBe("label");
   })
 })

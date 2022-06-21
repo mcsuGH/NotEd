@@ -4,9 +4,7 @@ const CalendarEventSchema = new mongoose.Schema(
   {
     title: String,
     description: String,
-    day: String,
-    month: String,
-    year: String,
+    date: String,
     label: String
   }
 );
