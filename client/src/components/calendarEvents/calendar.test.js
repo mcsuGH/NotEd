@@ -1,12 +1,12 @@
 import React from 'react';
-import DisplayCalendar from './displayCalendar';
+import Calendar from './calendar';
 import { render, screen, cleanup } from '@testing-library/react';
 
 afterEach(cleanup);
 
-describe("DisplayCalendar", () => {
+describe("Calendar", () => {
   it("renders each component of the calendar", () => {
-    render(<DisplayCalendar />)
+    render(<Calendar />)
     expect(screen.getByText("Create Event:")).toBeInTheDocument();
   })
 })
