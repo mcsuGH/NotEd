@@ -7,6 +7,9 @@ afterEach(cleanup);
 describe("Calendar", () => {
   it("renders each component of the calendar", () => {
     render(<Calendar />)
-    expect(screen.getByText("Create Event:")).toBeInTheDocument();
+    
+    const titleEl = screen.getByLabelText("title");
+    expect(titleEl.value).toBe("");
+    expect(titleEl.placeholder).toBe("Title");
   })
 })

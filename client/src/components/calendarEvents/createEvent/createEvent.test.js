@@ -20,6 +20,9 @@ describe("Create Event", () => {
     fireEvent.change(descriptionEl, { target: { value: "Test" }});
     expect(descriptionEl.value).toBe("Test");
 
+    const labelEl = screen.getByLabelText("label-indigo");
+    expect(labelEl).toBeInTheDocument();
+
     const submitEl = screen.getByRole("button", { name: "Create" });
     expect(submitEl).toBeInTheDocument();
   });
