@@ -12,7 +12,7 @@ describe("Day", () => {
       { title: "hi", description: "bye", date: "22-06-22", label: "indigo" },
     ];
     render(
-      <Day day={fakeDay} key="1" rowIdx="1" data={fakeData} />
+      <Day day={fakeDay} key="1" rowIdx="1" events={fakeData} />
     );
     expect(screen.getByText("hi")).toBeInTheDocument();
   });
