@@ -17,7 +17,7 @@ const CalendarController = {
       if (err) {
         throw err;
       }
-      res.status(201).send("Event created");
+      res.status(201).send(calendarEvent);
     });
   },
 

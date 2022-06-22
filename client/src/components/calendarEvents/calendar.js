@@ -15,8 +15,8 @@ export default function DisplayCalendar({url}) {
 
   return (
     <React.Fragment>
-      <CreateEvent url={url}/>
-      <Day day={dayjs()} data={events}/>
+      <CreateEvent url={url} setEvents={setEvents}/>
+      <Day day={dayjs()} events={events}/>
     </React.Fragment>
   )
 }

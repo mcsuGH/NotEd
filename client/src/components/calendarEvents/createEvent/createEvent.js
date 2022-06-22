@@ -11,7 +11,7 @@ const labelClasses = [
   "gray",
 ];
 
-export default function CreateEvent( {url} ) {
+export default function CreateEvent( {url, setEvents} ) {
   const { daySelected } = useContext(CalendarGlobalContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -32,7 +32,9 @@ export default function CreateEvent( {url} ) {
       date: daySelected.format("DD-MM-YY"),
       label: selectedLabel,
     }
-    axios.post(`${url}/server/calendar/create`, newEvent);
+    axios
+      .post(`${url}/server/calendar/create`, newEvent)
+      .then((res) => setEvents((prevEvents) => [...prevEvents, res.data]))
     setTitle("");
     setDescription("");
   };
