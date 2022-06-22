@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import dayjs from 'dayjs';
 import CreateEvent from './createEvent/createEvent';
 import Day from './day/day';
 
@@ -15,7 +16,7 @@ export default function DisplayCalendar({url}) {
   return (
     <React.Fragment>
       <CreateEvent url={url}/>
-      <Day data={events}/>
+      <Day day={dayjs()} data={events}/>
     </React.Fragment>
   )
 }

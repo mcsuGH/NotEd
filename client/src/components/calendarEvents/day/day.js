@@ -8,8 +8,7 @@ export default function Day({ day, _key, rowIdx, data }) {
       {data.map((event, key) => {
         return (
           <div key={key}>
-            <p>{event.title}</p>
-            <p>{event.description}</p>
+            {event.date === day.format("DD-MM-YY") && event.title}
           </div>
         )
       })}
