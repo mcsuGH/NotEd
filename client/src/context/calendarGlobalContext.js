@@ -6,6 +6,8 @@ const CalendarGlobalContext = React.createContext({
   setMonthIndex: (index) => {},
   daySelected: dayjs(),
   setDaySelected: (day) => {},
+  eventSelected: {},
+  setEventSelected: () => {},
   showCreateEvent: false,
   setShowCreateEvent: () => {},
   labels: [],

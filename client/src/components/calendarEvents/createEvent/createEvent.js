@@ -29,7 +29,7 @@ export default function CreateEvent( {url, setEvents} ) {
     const newEvent = { 
       title: title, 
       description: description,
-      date: daySelected.format("DD-MM-YY"),
+      date: daySelected.format("YYYY-MM-DD"),
       label: selectedLabel,
     }
     axios
