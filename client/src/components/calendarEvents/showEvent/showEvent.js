@@ -4,8 +4,8 @@ import dayjs from 'dayjs';
 export default function ShowEvent( {event, setEventSelected} ) {
   const labelValues = {
     "indigo": "General",
-    "red": "Miscellaneous",
-    "blue": "Reminders",
+    "red": "Personal",
+    "blue": "Family & Friends",
     "green": "Birthdays",
     "purple": "Holidays",
   }

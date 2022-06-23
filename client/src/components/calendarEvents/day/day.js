@@ -18,9 +18,6 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
       })}
       <div className="flex-1 cursor-pointer" onClick={()=>setShowCreateEvent(true)}>
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     </div>
   )
