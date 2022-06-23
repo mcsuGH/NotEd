@@ -8,6 +8,8 @@ describe("Create Event", () => {
   it("renders a form to create a calendar event", () => {
     render(<CreateEvent />);
 
+    expect(screen.getByText("Create Event:")).toBeInTheDocument();
+
     const titleEl = screen.getByLabelText("title");
     expect(titleEl.value).toBe("");
     expect(titleEl.placeholder).toBe("Title");

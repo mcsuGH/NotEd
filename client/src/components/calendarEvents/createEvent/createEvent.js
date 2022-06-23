@@ -8,10 +8,9 @@ const labelClasses = [
   "blue",
   "green",
   "purple",
-  "gray",
 ];
 
-export default function CreateEvent( {url, setEvents} ) {
+export default function CreateEvent( {url, setEvents, setShowCreateEvent} ) {
   const { daySelected } = useContext(CalendarGlobalContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -37,6 +36,7 @@ export default function CreateEvent( {url, setEvents} ) {
       .then((res) => setEvents((prevEvents) => [...prevEvents, res.data]))
     setTitle("");
     setDescription("");
+    setShowCreateEvent(false);
   };
 
   const chooseLabel = () => {
@@ -61,6 +61,11 @@ export default function CreateEvent( {url, setEvents} ) {
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
       <div className="bg-white rounded-lg shadow-2xl w-1/3">
+      <header className={`bg-gray-200 px-4 py-2 flex justify-between items-center`}>
+        <span className="text-gray-500">Create Event:</span>
+        <button className="text-gray-500" onClick={()=>setShowCreateEvent(false)}>X</button>
+      </header>
+  
         <div className="p-3">
           <div className="grid items-end gap-y-7">
             <div className="pt-3 border-0 text-gray-400 pb-2 w-full text-left ml-3">

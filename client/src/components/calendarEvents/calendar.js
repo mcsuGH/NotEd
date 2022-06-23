@@ -6,7 +6,7 @@ import CreateEvent from './createEvent/createEvent';
 import ShowEvent from './showEvent/showEvent';
 import Day from './day/day';
 
-export default function DisplayCalendar({url}) {
+export default function Calendar({url}) {
   const [events, setEvents] = useState([])
   const [eventSelected, setEventSelected] = useState({})
   const [showCreateEvent, setShowCreateEvent] = useState(false);
@@ -19,7 +19,7 @@ export default function DisplayCalendar({url}) {
 
   return (
     <React.Fragment>
-      {showCreateEvent && <CreateEvent url={url} setEvents={setEvents}/>}
+      {showCreateEvent && <CreateEvent url={url} setEvents={setEvents} setShowCreateEvent={setShowCreateEvent}/>}
       <Day day={dayjs()} events={events} setEventSelected={setEventSelected} setShowCreateEvent={setShowCreateEvent}/>
       {eventSelected && <ShowEvent event={eventSelected} />}
     </React.Fragment>

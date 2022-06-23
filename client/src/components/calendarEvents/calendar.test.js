@@ -8,8 +8,6 @@ describe("Calendar", () => {
   it("renders each component of the calendar", () => {
     render(<Calendar />)
     
-    const titleEl = screen.getByLabelText("title");
-    expect(titleEl.value).toBe("");
-    expect(titleEl.placeholder).toBe("Title");
+    
   })
 })
