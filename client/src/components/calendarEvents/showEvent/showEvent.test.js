@@ -19,5 +19,6 @@ describe("ShowEvent", () => {
     expect(screen.getByText("hi")).toBeInTheDocument();
     expect(screen.getByText("bye")).toBeInTheDocument();
     expect(screen.getByText("Thursday, June 23 2022")).toBeInTheDocument();
+    expect(screen.getByText("General")).toBeInTheDocument();
   });
 });
