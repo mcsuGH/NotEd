@@ -23,7 +23,9 @@ const CalendarController = {
 
   Delete: (req, res) => {
     CalendarEvents.findByIdAndRemove(req.params.id, function (err, docs) {
-      if (err) res.json(err);
+      if (err) {
+        throw err;
+      }
       else res.status(201).send("Event deleted");
     });
   },

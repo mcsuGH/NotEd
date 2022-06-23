@@ -30,9 +30,11 @@ export default function Calendar({url}) {
         setEventSelected={setEventSelected} 
         setShowCreateEvent={setShowCreateEvent}
       />
-      {eventSelected && <ShowEvent 
+      {eventSelected && <ShowEvent
+        url={url}
         event={eventSelected} 
         setEventSelected={setEventSelected}
+        setEvents={setEvents}
       />}
     </React.Fragment>
   )

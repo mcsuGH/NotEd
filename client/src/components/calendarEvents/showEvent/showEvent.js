@@ -1,13 +1,22 @@
 import React, {useEffect} from "react";
+import axios from 'axios'
 import dayjs from 'dayjs';
 
-export default function ShowEvent( {event, setEventSelected} ) {
+export default function ShowEvent( {url, event, setEventSelected, setEvents} ) {
   const labelValues = {
     "indigo": "General",
     "red": "Personal",
     "blue": "Family & Friends",
     "green": "Birthdays",
     "purple": "Holidays",
+  }
+
+  const handleDelete = (eventId) => {
+    axios
+      .delete(`${url}/server/calendar/delete/${eventId}`)
+      .then(setEvents((prevEvents) => {
+        return prevEvents.filter((event) => event._id !== eventId)
+      }))
   }
 
   return (
@@ -37,6 +46,11 @@ export default function ShowEvent( {event, setEventSelected} ) {
             >
               {event.description}
             </p>
+            <button
+              onClick={() => {handleDelete(event._id)}}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
