@@ -8,7 +8,7 @@ import Day from './day/day';
 
 export default function Calendar({url}) {
   const [events, setEvents] = useState([])
-  const [eventSelected, setEventSelected] = useState({})
+  const [eventSelected, setEventSelected] = useState(null)
   const [showCreateEvent, setShowCreateEvent] = useState(false);
 
   useEffect(() => {
@@ -19,9 +19,21 @@ export default function Calendar({url}) {
 
   return (
     <React.Fragment>
-      {showCreateEvent && <CreateEvent url={url} setEvents={setEvents} setShowCreateEvent={setShowCreateEvent}/>}
-      <Day day={dayjs()} events={events} setEventSelected={setEventSelected} setShowCreateEvent={setShowCreateEvent}/>
-      {eventSelected && <ShowEvent event={eventSelected} />}
+      {showCreateEvent && <CreateEvent 
+        url={url} 
+        setEvents={setEvents} 
+        setShowCreateEvent={setShowCreateEvent}
+      />}
+      <Day 
+        day={dayjs()} 
+        events={events} 
+        setEventSelected={setEventSelected} 
+        setShowCreateEvent={setShowCreateEvent}
+      />
+      {eventSelected && <ShowEvent 
+        event={eventSelected} 
+        setEventSelected={setEventSelected}
+      />}
     </React.Fragment>
   )
 }

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import dayjs from 'dayjs';
 
-export default function ShowEvent( {event} ) {
+export default function ShowEvent( {event, setEventSelected} ) {
   const labelValues = {
     "indigo": "General",
     "red": "Miscellaneous",
@@ -11,10 +11,11 @@ export default function ShowEvent( {event} ) {
   }
 
   return (
-    <div>
+    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
       <div className="bg-white rounded-lg shadow-2xl w-1/3">
         <header className={`bg-${event.label}-200 px-4 py-2 flex justify-between items-center`}>
-          {labelValues[event.label]}
+          <span className="text-gray-500">{labelValues[event.label]}</span>
+          <button className="text-gray-500" onClick={()=>setEventSelected(null)}>X</button>
         </header>
         <div className="p-3">
           <div className="grid items-end gap-y-7">
