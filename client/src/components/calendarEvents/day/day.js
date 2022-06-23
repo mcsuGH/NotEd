@@ -1,24 +1,27 @@
-import React, { useContext } from "react";
-import dayjs from "dayjs";
+import React from "react";
 
-import CalendarGlobalContext from "../../../context/calendarGlobalContext";
-
-export default function Day({ day, _key, rowIdx, events }) {
-  const {
-    setEventSelected,
-  } = useContext(CalendarGlobalContext);
+export default function Day({ day, _key, rowIdx, events, setEventSelected, setShowCreateEvent }) {
 
   return (
-    <div>
+    <div className="border border-gray-200 flex flex-col"> 
       {events.map((event, key) => {
         return (
-          <div>
-            <button onClick={setEventSelected(event)}> 
-              {event.date === day.format("DD-MM-YY") && event.title}
-            </button>
-          </div>
+          <button 
+            key={key}
+            type="submit"
+            onClick={()=>setEventSelected(event)}
+            className={`bg-${event.label}-500 w-full text-white`}
+          > 
+            {event.title}
+          </button>
         );
       })}
+      <div className="flex-1 cursor-pointer" onClick={()=>setShowCreateEvent(true)}>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
     </div>
   )
 }

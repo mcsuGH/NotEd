@@ -1,6 +1,5 @@
 import React from "react";
 import ShowEvent from "./showEvent";
-import dayjs from "dayjs";
 import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);

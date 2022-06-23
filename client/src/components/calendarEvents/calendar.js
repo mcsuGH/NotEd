@@ -8,7 +8,8 @@ import Day from './day/day';
 
 export default function DisplayCalendar({url}) {
   const [events, setEvents] = useState([])
-  const { eventSelected } = useContext(CalendarGlobalContext);
+  const [eventSelected, setEventSelected] = useState({})
+  const [showCreateEvent, setShowCreateEvent] = useState(false);
 
   useEffect(() => {
     axios.get(`${url}/server/calendar`).then((res) => {
@@ -18,16 +19,9 @@ export default function DisplayCalendar({url}) {
 
   return (
     <React.Fragment>
-      <CreateEvent url={url} setEvents={setEvents}/>
-      <Day day={dayjs()} events={events}/>
-      {eventSelected && <ShowEvent event={
-        {
-          title: "hi",
-          description: "bye",
-          date: "2022-06-23",
-          label: "indigo",
-        }
-      } />}
+      {showCreateEvent && <CreateEvent url={url} setEvents={setEvents}/>}
+      <Day day={dayjs()} events={events} setEventSelected={setEventSelected} setShowCreateEvent={setShowCreateEvent}/>
+      {eventSelected && <ShowEvent event={eventSelected} />}
     </React.Fragment>
   )
 }
