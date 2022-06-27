@@ -58,14 +58,14 @@ export default function Calendar({url}) {
       {showCreateEvent && <CreateEvent 
         url={url}
         daySelected={daySelected} 
-        setEvents={setEvents} 
+        setData={setData} 
         setShowCreateEvent={setShowCreateEvent}
       />}
       {eventSelected && <ShowEvent
         url={url}
         event={eventSelected} 
         setEventSelected={setEventSelected}
-        setEvents={setEvents}
+        setData={setData}
       />}
       <div className="flex flex-1">
         <Filter         
