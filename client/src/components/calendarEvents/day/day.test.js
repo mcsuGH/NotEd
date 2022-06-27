@@ -9,7 +9,7 @@ describe("Day", () => {
   it("renders the events for the date", () => {
     const fakeDay = new dayjs("2022-06-22");
     const fakeData = [
-      { title: "hi", description: "bye", date: "22-06-22", label: "indigo" },
+      { title: "hi", description: "bye", date: "2022-06-22", label: "indigo" },
     ];
     render(
       <Day day={fakeDay} key="1" rowIdx="1" events={fakeData} />

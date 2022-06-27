@@ -12,7 +12,7 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
             onClick={()=>setEventSelected(event)}
             className={`bg-${event.label}-500 w-full text-white`}
           > 
-            {event.title}
+            {event.date === day.format("YYYY-MM-DD") && event.title}
           </button>
         );
       })}
