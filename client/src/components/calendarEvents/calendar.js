@@ -3,6 +3,7 @@ import axios from 'axios';
 import CreateEvent from './createEvent/createEvent';
 import ShowEvent from './showEvent/showEvent';
 import Month from './month/month';
+import Filter from './filter/filter';
 import dayjs from 'dayjs';
 import { getMonth } from "./util";
 
@@ -32,19 +33,22 @@ export default function Calendar({url}) {
         setEvents={setEvents} 
         setShowCreateEvent={setShowCreateEvent}
       />}
-      <Month
-        month={currentMonth} 
-        events={events} 
-        setEventSelected={setEventSelected} 
-        setShowCreateEvent={setShowCreateEvent}
-        setDaySelected={setDaySelected}
-      />
       {eventSelected && <ShowEvent
         url={url}
         event={eventSelected} 
         setEventSelected={setEventSelected}
         setEvents={setEvents}
       />}
+      <div className="flex flex-1">
+        <Filter />
+        <Month
+          month={currentMonth} 
+          events={events} 
+          setEventSelected={setEventSelected} 
+          setShowCreateEvent={setShowCreateEvent}
+          setDaySelected={setDaySelected}
+        />
+      </div>
     </React.Fragment>
   )
 }
