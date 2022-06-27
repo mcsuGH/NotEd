@@ -7,10 +7,6 @@ afterEach(cleanup);
 
 describe("Month", () => {
   it("renders the days of the month", () => {
-    const fakeUser = {
-      admin: true,
-    };
-
     render(
       <Month
         month={[
