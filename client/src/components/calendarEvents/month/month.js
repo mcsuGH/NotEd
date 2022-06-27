@@ -1,7 +1,7 @@
 import React from "react";
 import Day from "../day/day";
 
-export default function Month({ month, events, setEventSelected, setShowCreateEvent }) {
+export default function Month({ month, events, setEventSelected, setShowCreateEvent, setDaySelected }) {
   return (
     <div className="flex-1 grid grid-cols-7 grid-rows-5">
       {month.map((row, i) => (
@@ -15,6 +15,7 @@ export default function Month({ month, events, setEventSelected, setShowCreateEv
               events={events}
               setEventSelected={setEventSelected}
               setShowCreateEvent={setShowCreateEvent}
+              setDaySelected={setDaySelected}
             />
           ))}
         </React.Fragment>

@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import dayjs from "dayjs";
-import CalendarGlobalContext from "../../../context/calendarGlobalContext";
 
-export default function Day({ day, _key, rowIdx, events, setEventSelected, setShowCreateEvent }) {
-  const { daySelected, setDaySelected } = useContext(CalendarGlobalContext);
+export default function Day({ day, _key, rowIdx, events, setEventSelected, setShowCreateEvent, setDaySelected }) {
 
   const getCurrentDayClass = () => {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
@@ -13,8 +11,6 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
 
   const createEvent = () => {
     setDaySelected(day);
-    console.log(day);
-    console.log(daySelected);
     setShowCreateEvent(true);
   }
 

@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import CalendarGlobalContext from "../../context/calendarGlobalContext";
 import CreateEvent from './createEvent/createEvent';
 import ShowEvent from './showEvent/showEvent';
 import Month from './month/month';
+import dayjs from 'dayjs';
 import { getMonth } from "./util";
 
 export default function Calendar({url}) {
   const [events, setEvents] = useState([])
   const [eventSelected, setEventSelected] = useState(null)
+  const [daySelected, setDaySelected] = useState(dayjs())
   const [showCreateEvent, setShowCreateEvent] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex } = useContext(CalendarGlobalContext);
+  let monthIndex = dayjs().month();
   
-  // useEffect(() => {
-  //   setCurrentMonth(getMonth(monthIndex));
-  // }, [monthIndex]);
+  useEffect(() => {
+    setCurrentMonth(getMonth(monthIndex));
+  }, [monthIndex]);
 
   useEffect(() => {
     axios.get(`${url}/server/calendar`).then((res) => {
@@ -26,7 +27,8 @@ export default function Calendar({url}) {
   return (
     <React.Fragment>
       {showCreateEvent && <CreateEvent 
-        url={url} 
+        url={url}
+        daySelected={daySelected} 
         setEvents={setEvents} 
         setShowCreateEvent={setShowCreateEvent}
       />}
@@ -35,6 +37,7 @@ export default function Calendar({url}) {
         events={events} 
         setEventSelected={setEventSelected} 
         setShowCreateEvent={setShowCreateEvent}
+        setDaySelected={setDaySelected}
       />
       {eventSelected && <ShowEvent
         url={url}

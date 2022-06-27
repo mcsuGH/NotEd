@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import CalendarGlobalContext from "../../../context/calendarGlobalContext";
 
 const labelClasses = [
   "indigo",
@@ -10,8 +9,7 @@ const labelClasses = [
   "purple",
 ];
 
-export default function CreateEvent( {url, setEvents, setShowCreateEvent} ) {
-  const { daySelected } = useContext(CalendarGlobalContext);
+export default function CreateEvent( {url, setEvents, setShowCreateEvent, daySelected} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
