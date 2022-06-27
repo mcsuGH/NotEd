@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import dayjs from "dayjs";
+import CalendarGlobalContext from "../../../context/calendarGlobalContext";
 
 export default function Day({ day, _key, rowIdx, events, setEventSelected, setShowCreateEvent }) {
-  function getCurrentDayClass() {
+  const { daySelected, setDaySelected } = useContext(CalendarGlobalContext);
+
+  const getCurrentDayClass = () => {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
       ? "bg-blue-600 text-white rounded-full w-7"
       : "";
+  }
+
+  const createEvent = () => {
+    setDaySelected(day);
+    console.log(day);
+    console.log(daySelected);
+    setShowCreateEvent(true);
   }
 
   return (
@@ -15,7 +25,7 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
             <p className="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
           )}
           <p className={`text-sm p-1 my-1 text-center ${getCurrentDayClass()}`}>
-            {day.format("DD-MM-YYYY")}
+            {day.format("DD")}
           </p>
       </header>
       {events.map((event, key) => {
@@ -30,7 +40,7 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
           </button>
         );
       })}
-      <div className="flex-1 cursor-pointer" onClick={()=>setShowCreateEvent(true)}>
+      <div className="flex-1 cursor-pointer" onClick={createEvent}>
         <br></br>
       </div>
     </div>

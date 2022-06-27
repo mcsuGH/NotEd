@@ -13,9 +13,9 @@ export default function Calendar({url}) {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex } = useContext(CalendarGlobalContext);
   
-  useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex));
-  }, [monthIndex]);
+  // useEffect(() => {
+  //   setCurrentMonth(getMonth(monthIndex));
+  // }, [monthIndex]);
 
   useEffect(() => {
     axios.get(`${url}/server/calendar`).then((res) => {
