@@ -1,12 +1,13 @@
 import React from "react";
 import CreateEvent from "./createEvent";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import dayjs from 'dayjs';
 
 afterEach(cleanup);
 
 describe("Create Event", () => {
   it("renders a form to create a calendar event", () => {
-    render(<CreateEvent />);
+    render(<CreateEvent daySelected={dayjs()}/>);
 
     expect(screen.getByText("Create Event:")).toBeInTheDocument();
 
