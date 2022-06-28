@@ -51,7 +51,7 @@ export default function Calendar({url, user}) {
     axios.get(`${url}/server/calendar/${user.id}`).then((res) => {
       setData(res.data);
     });
-  }, [url, user])
+  }, [url, user.id])
 
   return (
     <React.Fragment>
@@ -68,7 +68,7 @@ export default function Calendar({url, user}) {
         setEventSelected={setEventSelected}
         setData={setData}
       />}
-      <div className="flex flex-1">
+      <div className="flex flex-1 h-screen">
         <Filter         
           indigoChecked={indigoChecked} setIndigoChecked={setIndigoChecked}
           redChecked={redChecked} setRedChecked={setRedChecked}

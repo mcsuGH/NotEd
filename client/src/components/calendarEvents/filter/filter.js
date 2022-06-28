@@ -17,8 +17,8 @@ export default function Filter( {
 
   return (
     <aside className="border p-5 w-48">
-      <p className="text-gray-500 font-bold mt-10">Filter</p>
-      <label>
+      <p className="text-gray-500 font-bold mt-2">Filter</p>
+      <label className="float-left">
         <input
           type="checkbox"
           checked={indigoChecked}
@@ -28,7 +28,7 @@ export default function Filter( {
         <span className="ml-2 text-gray-700 capitalize">{labelValues["indigo"]}</span>
         <br></br>
       </label>
-      <label>
+      <label className="float-left">
         <input
           type="checkbox"
           checked={redChecked}
@@ -38,7 +38,7 @@ export default function Filter( {
         <span className="ml-2 text-gray-700 capitalize">{labelValues["red"]}</span>
         <br></br>
       </label>
-      <label>
+      <label className="float-left">
         <input
           type="checkbox"
           checked={blueChecked}
@@ -48,7 +48,7 @@ export default function Filter( {
         <span className="ml-2 text-gray-700 capitalize">{labelValues["blue"]}</span>
         <br></br>
       </label>
-      <label>
+      <label className="float-left">
         <input
           type="checkbox"
           checked={greenChecked}
@@ -58,7 +58,7 @@ export default function Filter( {
         <span className="ml-2 text-gray-700 capitalize">{labelValues["green"]}</span>
         <br></br>
       </label>
-      <label>
+      <label className="float-left">
         <input
           type="checkbox"
           checked={purpleChecked}
