@@ -1,20 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import dayjs from 'dayjs';
 
 export default function Filter( {
-  indigoChecked, setIndigoChecked,
-  redChecked, setRedChecked,
-  blueChecked, setBlueChecked,
-  greenChecked, setGreenChecked,
-  purpleChecked, setPurpleChecked,
+  filters, setFilters,
   monthIndex, setMonthIndex,
 }) {
+  const [indigo, setIndigo] = useState(true)
+  const [red, setRed] = useState(true)
+  const [blue, setBlue] = useState(true)
+  const [green, setGreen] = useState(true)
+  const [purple, setPurple] = useState(true)
+
   const labelValues = {
     "indigo": "General",
     "red": "Personal",
     "blue": "Family & Friends",
     "green": "Birthdays",
     "purple": "Holidays",
+  }
+
+  const clickLabel = {
+    indigo() {setIndigo(!indigo)},
+    red() {setRed(!red)},
+    blue() {setBlue(!blue)},
+    green() {setGreen(!green)},
+    purple() {setPurple(!purple)}
+  }
+
+  const handleChange = (label) => {
+    clickLabel[label]()
+    return filters.includes(label) 
+    ? setFilters((prevFilters) => prevFilters.filter((lbl) => lbl !== label))
+    : setFilters((prevFilters) => [...prevFilters, label])
   }
 
   return (
@@ -40,8 +57,8 @@ export default function Filter( {
       <label className="float-left">
         <input
           type="checkbox"
-          checked={indigoChecked}
-          onChange={() => setIndigoChecked(!indigoChecked)}
+          checked={indigo}
+          onChange={() => handleChange('indigo')}
           className="form-checkbox h-5 w-5 text-indigo-400 rounded focus:ring-0 cursor-pointer"
         />
         <span className="ml-2 text-gray-700 capitalize">{labelValues["indigo"]}</span>
@@ -50,8 +67,8 @@ export default function Filter( {
       <label className="float-left">
         <input
           type="checkbox"
-          checked={redChecked}
-          onChange={() => setRedChecked(!redChecked)}
+          checked={red}
+          onChange={() => handleChange('red')}
           className="form-checkbox h-5 w-5 text-red-400 rounded focus:ring-0 cursor-pointer"
         />
         <span className="ml-2 text-gray-700 capitalize">{labelValues["red"]}</span>
@@ -60,8 +77,8 @@ export default function Filter( {
       <label className="float-left">
         <input
           type="checkbox"
-          checked={blueChecked}
-          onChange={() => setBlueChecked(!blueChecked)}
+          checked={blue}
+          onChange={() => handleChange('blue')}
           className="form-checkbox h-5 w-5 text-blue-400 rounded focus:ring-0 cursor-pointer"
         />
         <span className="ml-2 text-gray-700 capitalize">{labelValues["blue"]}</span>
@@ -70,8 +87,8 @@ export default function Filter( {
       <label className="float-left">
         <input
           type="checkbox"
-          checked={greenChecked}
-          onChange={() => setGreenChecked(!greenChecked)}
+          checked={green}
+          onChange={() => handleChange('green')}
           className="form-checkbox h-5 w-5 text-green-400 rounded focus:ring-0 cursor-pointer"
         />
         <span className="ml-2 text-gray-700 capitalize">{labelValues["green"]}</span>
@@ -80,8 +97,8 @@ export default function Filter( {
       <label className="float-left">
         <input
           type="checkbox"
-          checked={purpleChecked}
-          onChange={() => setPurpleChecked(!purpleChecked)}
+          checked={purple}
+          onChange={() => handleChange('purple')}
           className="form-checkbox h-5 w-5 text-purple-400 rounded focus:ring-0 cursor-pointer"
         />
         <span className="ml-2 text-gray-700 capitalize">{labelValues["purple"]}</span>

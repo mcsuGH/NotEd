@@ -8,40 +8,24 @@ import dayjs from 'dayjs';
 import { getMonth } from "./util";
 
 export default function Calendar({url, user}) {
-  const [data, setData] = useState([])
-  const [events, setEvents] = useState([])
-  const [eventSelected, setEventSelected] = useState(null)
-  const [indigoChecked, setIndigoChecked] = useState(true)
-  const [redChecked, setRedChecked] = useState(true)
-  const [blueChecked, setBlueChecked] = useState(true)
-  const [greenChecked, setGreenChecked] = useState(true)
-  const [purpleChecked, setPurpleChecked] = useState(true)
+  const [data, setData] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [filters, setFilters] = useState(["indigo", "red", "blue", "green", "purple"]);
   const [daySelected, setDaySelected] = useState(dayjs())
   const [showCreateEvent, setShowCreateEvent] = useState(false);
+  const [eventSelected, setEventSelected] = useState(null);
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
 
   useEffect(() => {
     const checkFilters = (event) => {
-      if (event.label === "indigo" && indigoChecked) {
-        return event
-      }
-      if (event.label === "red" && redChecked) {
-        return event
-      }
-      if (event.label === "blue" && blueChecked) {
-        return event
-      }
-      if (event.label === "green" && greenChecked) {
-        return event
-      }
-      if (event.label === "purple" && purpleChecked) {
+      if (filters.includes(event.label)) {
         return event
       }
     }
     let filteredEvents = data.filter(checkFilters);
     setEvents(filteredEvents);
-  }, [indigoChecked, redChecked, blueChecked, greenChecked, purpleChecked, data]);
+  }, [filters, data]);
   
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
@@ -75,11 +59,7 @@ export default function Calendar({url, user}) {
       />}
       <div className="flex flex-1 h-screen">
         <Filter         
-          indigoChecked={indigoChecked} setIndigoChecked={setIndigoChecked}
-          redChecked={redChecked} setRedChecked={setRedChecked}
-          blueChecked={blueChecked} setBlueChecked={setBlueChecked}
-          greenChecked={greenChecked} setGreenChecked={setGreenChecked}
-          purpleChecked={purpleChecked} setPurpleChecked={setPurpleChecked}
+          filters={filters} setFilters={setFilters}
           monthIndex={monthIndex} setMonthIndex={setMonthIndex}
         />
         <Month
