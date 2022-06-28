@@ -48,10 +48,10 @@ export default function Calendar({url, user}) {
   }, [monthIndex]);
 
   useEffect(() => {
-    axios.get(`${url}/server/calendar`).then((res) => {
+    axios.get(`${url}/server/calendar/${user.id}`).then((res) => {
       setData(res.data);
     });
-  }, [url])
+  }, [url, user])
 
   return (
     <React.Fragment>

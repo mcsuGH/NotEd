@@ -2,7 +2,7 @@ const CalendarEvents = require("../models/calendarEvent.js");
 
 const CalendarController = {
   Index: (req, res) => {
-    CalendarEvents.find()
+    CalendarEvents.find({userId: req.params.userId})
       .exec((err, events) => {
         if (err) {
           throw err;

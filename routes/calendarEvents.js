@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const CalendarController = require("../controllers/calendarEvents")
 
-router.get("/", CalendarController.Index);
+router.get("/:userId", CalendarController.Index);
 router.post("/create", CalendarController.Create);
 router.delete("/delete/:id", CalendarController.Delete);
 
