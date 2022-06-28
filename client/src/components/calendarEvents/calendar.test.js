@@ -6,7 +6,10 @@ afterEach(cleanup);
 
 describe("Calendar", () => {
   it("renders each component of the calendar", () => {
-    render(<Calendar />)
+    const fakeUser = {
+      id: "123",
+    }
+    render(<Calendar user={fakeUser}/>)
     
     
   })

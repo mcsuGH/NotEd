@@ -14,12 +14,14 @@ describe(CalendarEvent, () => {
       title: "Title",
       description: "Description",
       date: "DD-MM-YYYY",
-      label: "label"
+      label: "label",
+      userId: "123",
     });
 
     expect(calendarEvent.title).toBe("Title");
     expect(calendarEvent.description).toBe("Description");
     expect(calendarEvent.date).toBe("DD-MM-YYYY")
     expect(calendarEvent.label).toBe("label");
+    expect(calendarEvent.userId).toBe("123");
   })
 })
