@@ -18,8 +18,8 @@ export default function Calendar({url, user}) {
   const [purpleChecked, setPurpleChecked] = useState(true)
   const [daySelected, setDaySelected] = useState(dayjs())
   const [showCreateEvent, setShowCreateEvent] = useState(false);
+  const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  let monthIndex = dayjs().month();
 
   useEffect(() => {
     const checkFilters = (event) => {
@@ -80,6 +80,7 @@ export default function Calendar({url, user}) {
           blueChecked={blueChecked} setBlueChecked={setBlueChecked}
           greenChecked={greenChecked} setGreenChecked={setGreenChecked}
           purpleChecked={purpleChecked} setPurpleChecked={setPurpleChecked}
+          monthIndex={monthIndex} setMonthIndex={setMonthIndex}
         />
         <Month
           month={currentMonth} 

@@ -6,7 +6,12 @@ afterEach(cleanup);
 
 describe("Filter", () => {
   it("has a checkbox for each label", () => {
-    render(<Filter />);
+    render(<Filter monthIndex={5}/>);
+    const prevMonth = screen.getByRole("button", { name: "«" });
+    expect(prevMonth).toBeInTheDocument();
+    const nextMonth = screen.getByRole("button", { name: "»" });
+    expect(nextMonth).toBeInTheDocument();
+    expect(screen.getByText("June 2022")).toBeInTheDocument();
     const generalCheckbox = screen.getByRole("checkbox", { name: "General" });
     expect(generalCheckbox).toBeInTheDocument();
     const personalCheckbox = screen.getByRole("checkbox", { name: "Personal" });
