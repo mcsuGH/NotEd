@@ -48,9 +48,14 @@ export default function Calendar({url, user}) {
   }, [monthIndex]);
 
   useEffect(() => {
-    axios.get(`${url}/server/calendar/${user.id}`).then((res) => {
-      setData(res.data);
-    });
+    const fetchEvents = () => {
+      if (user.id && url) {
+        axios.get(`${url}/server/calendar/${user.id}`).then((res) => {
+          setData(res.data);
+        });
+      }
+    }
+    fetchEvents()
   }, [url, user.id])
 
   return (
