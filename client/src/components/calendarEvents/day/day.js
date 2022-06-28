@@ -30,7 +30,7 @@ export default function Day({ day, _key, rowIdx, events, setEventSelected, setSh
             key={key}
             type="submit"
             onClick={()=>setEventSelected(event)}
-            className={`bg-${event.label}-500 w-full text-white`}
+            className={`bg-${event.label}-500 w-full text-white truncate`}
           > 
             {event.date === day.format("YYYY-MM-DD") && event.title}
           </button>
