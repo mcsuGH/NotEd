@@ -19,6 +19,16 @@ export default function Filter( {
     "purple": "Holidays",
   }
 
+  const labels = ["indigo", "red", "blue", "green", "purple"]
+
+  const labelState = {
+    indigo() {return indigo},
+    red() {return red},
+    blue() {return blue},
+    green() {return green},
+    purple() {return purple}
+  }
+
   const clickLabel = {
     indigo() {setIndigo(!indigo)},
     red() {setRed(!red)},
@@ -32,6 +42,29 @@ export default function Filter( {
     return filters.includes(label) 
     ? setFilters((prevFilters) => prevFilters.filter((lbl) => lbl !== label))
     : setFilters((prevFilters) => [...prevFilters, label])
+  }
+
+  const createLabels = () => {
+    return (
+      <div>
+        {labels.map((label, idx) => {
+          return (
+            <div key={idx}>
+              <label className="float-left">
+                <input
+                  type="checkbox"
+                  checked={labelState[label]()}
+                  onChange={() => handleChange(label)}
+                  className={`form-checkbox h-5 w-5 text-${label}-400 rounded focus:ring-0 cursor-pointer`}
+                />
+                <span className="ml-2 text-gray-700 capitalize">{labelValues[label]}</span>
+              </label>
+              <br></br>
+            </div>
+          )
+        })}
+      </div>
+    )
   }
 
   return (
@@ -54,55 +87,7 @@ export default function Filter( {
       <p className="text-gray-500 font-bold mt-2">
         Filter
       </p>
-      <label className="float-left">
-        <input
-          type="checkbox"
-          checked={indigo}
-          onChange={() => handleChange('indigo')}
-          className="form-checkbox h-5 w-5 text-indigo-400 rounded focus:ring-0 cursor-pointer"
-        />
-        <span className="ml-2 text-gray-700 capitalize">{labelValues["indigo"]}</span>
-      </label>
-      <br></br>
-      <label className="float-left">
-        <input
-          type="checkbox"
-          checked={red}
-          onChange={() => handleChange('red')}
-          className="form-checkbox h-5 w-5 text-red-400 rounded focus:ring-0 cursor-pointer"
-        />
-        <span className="ml-2 text-gray-700 capitalize">{labelValues["red"]}</span>
-      </label>
-      <br></br>
-      <label className="float-left">
-        <input
-          type="checkbox"
-          checked={blue}
-          onChange={() => handleChange('blue')}
-          className="form-checkbox h-5 w-5 text-blue-400 rounded focus:ring-0 cursor-pointer"
-        />
-        <span className="ml-2 text-gray-700 capitalize">{labelValues["blue"]}</span>
-      </label>
-      <br></br>
-      <label className="float-left">
-        <input
-          type="checkbox"
-          checked={green}
-          onChange={() => handleChange('green')}
-          className="form-checkbox h-5 w-5 text-green-400 rounded focus:ring-0 cursor-pointer"
-        />
-        <span className="ml-2 text-gray-700 capitalize">{labelValues["green"]}</span>
-      </label>
-      <br></br>
-      <label className="float-left">
-        <input
-          type="checkbox"
-          checked={purple}
-          onChange={() => handleChange('purple')}
-          className="form-checkbox h-5 w-5 text-purple-400 rounded focus:ring-0 cursor-pointer"
-        />
-        <span className="ml-2 text-gray-700 capitalize">{labelValues["purple"]}</span>
-      </label>
+      {createLabels()}
     </aside>
   );
 }
