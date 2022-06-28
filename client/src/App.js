@@ -30,7 +30,7 @@ export default function App() {
         <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url}/>} />
-        <Route path="/calendar" element={<Calendar url={url}/>} />
+        <Route path="/calendar" element={<Calendar url={url} user={user}/>} />
       </Routes>
     </div>
   );

@@ -9,7 +9,7 @@ const labelClasses = [
   "purple",
 ];
 
-export default function CreateEvent( {url, setData, setShowCreateEvent, daySelected} ) {
+export default function CreateEvent( {url, setData, setShowCreateEvent, daySelected, user} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
@@ -28,6 +28,7 @@ export default function CreateEvent( {url, setData, setShowCreateEvent, daySelec
       description: description,
       date: daySelected.format("YYYY-MM-DD"),
       label: selectedLabel,
+      userId: user.id,
     }
     axios
       .post(`${url}/server/calendar/create`, newEvent)

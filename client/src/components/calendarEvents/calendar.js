@@ -7,7 +7,7 @@ import Filter from './filter/filter';
 import dayjs from 'dayjs';
 import { getMonth } from "./util";
 
-export default function Calendar({url}) {
+export default function Calendar({url, user}) {
   const [data, setData] = useState([])
   const [events, setEvents] = useState([])
   const [eventSelected, setEventSelected] = useState(null)
@@ -60,6 +60,7 @@ export default function Calendar({url}) {
         daySelected={daySelected} 
         setData={setData} 
         setShowCreateEvent={setShowCreateEvent}
+        user={user}
       />}
       {eventSelected && <ShowEvent
         url={url}

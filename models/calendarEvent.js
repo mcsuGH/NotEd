@@ -5,7 +5,8 @@ const CalendarEventSchema = new mongoose.Schema(
     title: String,
     description: String,
     date: String,
-    label: String
+    label: String,
+    userId: String,
   }
 );
 
