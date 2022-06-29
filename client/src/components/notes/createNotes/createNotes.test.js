@@ -20,14 +20,14 @@ describe("Create Notes", () => {
     fireEvent.change(descriptionEl, { target: { value: "Test" }});
     expect(descriptionEl.value).toBe("Test");
 
-    const submitEl = screen.getByRole("button", { name: "Submit" });
+    const submitEl = screen.getByRole("button", { name: "Create" });
     expect(submitEl).toBeInTheDocument();
   });
 
   it("cannot create a new note if there is already ten notes", () => {
     render(<CreateNotes notes={[0,1,2,3,4,5,6,7,8,9]}/>);
 
-    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    fireEvent.click(screen.getByRole("button", { name: "Create" }));
     expect(screen.getByText("You can only have 10 notes at a time")).toBeInTheDocument();
   });
 });
