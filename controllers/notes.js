@@ -20,7 +20,7 @@ const NotesController = {
       if (err) {
         throw err;
       }
-      res.send("Note created");
+      res.send(note);
     })
   }
 }

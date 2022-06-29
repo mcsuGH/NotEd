@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function CreateNotes( {url, user} ) {
+export default function CreateNotes( {url, user, setNotes} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -19,7 +19,12 @@ export default function CreateNotes( {url, user} ) {
       description: description,
       userId: user.id,
     }
-    axios.post(`${url}/server/notes/create`, newNote);
+    axios
+      .post(`${url}/server/notes/create`, newNote)
+      .then((res) => {
+        let createdNote = res.data
+        setNotes((prevNotes) => [createdNote, ...prevNotes]
+      )});
   };
 
   return (

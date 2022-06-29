@@ -13,9 +13,11 @@ describe(Note, () => {
     const note = new Note({
       title: "Title",
       description: "Description",
+      userId: "123",
     });
 
     expect(note.title).toBe("Title");
     expect(note.description).toBe("Description");
+    expect(note.userId).toBe("123");
   })
 })
