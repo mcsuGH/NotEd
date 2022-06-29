@@ -11,6 +11,9 @@ describe("Calendar", () => {
     }
     render(<Calendar user={fakeUser}/>)
     
-    
+    expect(screen.getByRole("button", { name: "«" })).toBeInTheDocument();
+    expect(screen.getByText("General")).toBeInTheDocument();
+    expect(screen.getByText("MON")).toBeInTheDocument();
+    expect(screen.getByText("25")).toBeInTheDocument();
   })
 })
