@@ -14,10 +14,12 @@ describe(Note, () => {
       title: "Title",
       description: "Description",
       userId: "123",
+      hidden: false,
     });
 
     expect(note.title).toBe("Title");
     expect(note.description).toBe("Description");
     expect(note.userId).toBe("123");
+    expect(note.hidden).toBe(false);
   })
 })

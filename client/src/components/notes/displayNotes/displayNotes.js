@@ -2,13 +2,13 @@ import dayjs from 'dayjs';
 
 export default function DisplayNotes({ notes }) {
   const formatDate = (date) => {
-    return dayjs(date).format("DD/MM/YY")
+    return dayjs(date).format("dddd, MMMM DD YYYY")
   }
 
   const noteCSS = {
     0: "indigo-200 rotate-6",
     1: "red-200 -rotate-6",
-    2: "blue-200 -rotate-1",
+    2: "yellow-500 -rotate-1",
     3: "green-200 -rotate-3",
     4: "purple-200 rotate-2",
     5: "purple-500 rotate-3",
@@ -21,15 +21,17 @@ export default function DisplayNotes({ notes }) {
   const displayNote = (noteInfo, key) => {
     return (
       <div className={`note-${key}`} key={key.toString()}>
-        <div className={`note block bg-${noteCSS[key]} float-left mt-2 ml-2 mr-2 mb-2 py-10 w-4/5`}>
-          <div className="noteTitle">
+        <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12`}>
+          <div className="underline decoration-dotted uppercase font-mono font-semibold">
             {noteInfo.title}
           </div>
-          <div className="noteDescription">
-            {noteInfo.description}
-          </div>
-          <div className="noteDate">
+          <br></br>
+          <div className="font-mono">
             {formatDate(noteInfo.createdAt)}
+          </div>
+          <br></br>
+          <div className="font-mono">
+            {noteInfo.description}
           </div>
         </div>
       </div>

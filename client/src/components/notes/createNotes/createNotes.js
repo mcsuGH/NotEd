@@ -18,6 +18,7 @@ export default function CreateNotes( {url, user, setNotes} ) {
       title: title, 
       description: description,
       userId: user.id,
+      hidden: false,
     }
     axios
       .post(`${url}/server/notes/create`, newNote)
