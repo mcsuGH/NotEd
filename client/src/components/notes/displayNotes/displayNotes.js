@@ -25,6 +25,9 @@ export default function DisplayNotes({ notes }) {
           <div className="underline decoration-dotted uppercase font-mono font-semibold">
             {noteInfo.title}
           </div>
+          <button >
+            Remove
+          </button>
           <br></br>
           <div className="font-mono">
             {formatDate(noteInfo.createdAt)}

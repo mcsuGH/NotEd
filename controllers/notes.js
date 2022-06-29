@@ -22,6 +22,13 @@ const NotesController = {
       }
       res.send(note);
     })
+  },
+
+  Update: (req,res) => {
+    Note.findOneAndUpdate(
+      { id: req.params.id },
+      { hidden: true }
+    )
   }
 }
 
