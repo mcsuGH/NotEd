@@ -5,23 +5,23 @@ export default function DisplayNotes({ notes }) {
     return dayjs(date).format("DD/MM/YY")
   }
 
-  const noteColour = {
-    0: "indigo-200",
-    1: "red-200",
-    2: "blue-200",
-    3: "green-200",
-    4: "purple-200",
-    5: "purple-500",
-    6: "indigo-500",
-    7: "red-500",
-    8: "blue-500",
-    9: "green-500",
+  const noteCSS = {
+    0: "indigo-200 rotate-6",
+    1: "red-200 -rotate-6",
+    2: "blue-200 -rotate-1",
+    3: "green-200 -rotate-3",
+    4: "purple-200 rotate-2",
+    5: "purple-500 rotate-3",
+    6: "indigo-500 -rotate-12",
+    7: "red-500 rotate-1",
+    8: "blue-500 rotate-12",
+    9: "green-500 -rotate-2",
   }
 
   const displayNote = (noteInfo, key) => {
     return (
       <div className={`note-${key}`} key={key.toString()}>
-        <div className={`bg-${noteColour[key]}`}>
+        <div className={`note block bg-${noteCSS[key]} float-left mt-2 ml-2 mr-2 mb-2 py-10 w-4/5`}>
           <div className="noteTitle">
             {noteInfo.title}
           </div>
