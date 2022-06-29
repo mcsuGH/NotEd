@@ -3,18 +3,20 @@ import axios from "axios";
 import DisplayNotes from "./displayNotes/displayNotes";
 import CreateNotes from "./createNotes/createNotes";
 
-export default function Notes( {url} ) {
+export default function Notes( {url, user} ) {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get(`${url}/server/notes`).then((res) => {
-      setNotes(res.data.notes);
-    });
-  }, [setNotes, url])
+    if (url && user.id) {
+      axios.get(`${url}/server/notes/${user.id}`).then((res) => {
+        setNotes(res.data.notes);
+      });
+    }
+  }, [setNotes, url, user.id])
 
   return (
     <div>
-      <CreateNotes url={url} />
+      <CreateNotes url={url} user={user}/>
       <DisplayNotes notes={notes} />
     </div>
   )

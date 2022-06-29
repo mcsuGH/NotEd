@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function CreateNotes( {url} ) {
+export default function CreateNotes( {url, user} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -14,7 +14,11 @@ export default function CreateNotes( {url} ) {
   };
 
   const handleSubmit = () => {
-    const newNote = { title: title, description: description }
+    const newNote = { 
+      title: title, 
+      description: description,
+      userId: user.id,
+    }
     axios.post(`${url}/server/notes/create`, newNote);
   };
 
