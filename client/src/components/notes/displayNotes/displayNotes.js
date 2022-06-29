@@ -7,15 +7,15 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   }
 
   const noteCSS = {
-    0: "indigo-200 rotate-6",
+    0: "indigo-500 rotate-6",
     1: "red-200 -rotate-6",
-    2: "yellow-500 -rotate-1",
+    2: "blue-500 -rotate-1",
     3: "green-200 -rotate-3",
-    4: "purple-200 rotate-2",
-    5: "purple-500 rotate-3",
-    6: "indigo-500 -rotate-12",
+    4: "purple-500 rotate-2",
+    5: "purple-200 rotate-3",
+    6: "indigo-200 -rotate-12",
     7: "red-500 rotate-1",
-    8: "blue-500 rotate-12",
+    8: "blue-200 rotate-12",
     9: "green-500 -rotate-2",
   }
 
@@ -53,19 +53,16 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   const checkNotes = () => {
     if (!notes || notes.length === 0 ) {
       return (
-        <div>You have no notes</div>
+        <div className="font-mono">You have no notes</div>
       )
     } else {
       return (
-        <div>
-          Your Notes:
-          <div className= "flex-1 grid grid-cols-5 grid-rows-2">
-            {notes.map((noteInfo, key) => {
-              return (
-                displayNote(noteInfo, key)
-              )
-            })}
-          </div>
+        <div className= "flex-1 grid grid-cols-5 grid-rows-2">
+          {notes.map((noteInfo, key) => {
+            return (
+              displayNote(noteInfo, key)
+            )
+          })}
         </div>
       )
     }
