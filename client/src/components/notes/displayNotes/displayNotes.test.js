@@ -13,7 +13,7 @@ describe("Display Notes", () => {
     expect(screen.getByText("hi")).toBeInTheDocument();
     expect(screen.getByText("bye")).toBeInTheDocument();
     expect(screen.getByText("Monday, June 13 2022")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Hide" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "hide" })).toBeInTheDocument();
   })
 
   it("when there are no notes, it says there are no notes", () => {
