@@ -30,6 +30,7 @@ export default function CreateNotes( {url, user, setNotes} ) {
   return (
     <div className="form">
       Create Note:
+      <br></br>
       <input
         aria-label="title"
         placeholder="Title"
@@ -37,6 +38,7 @@ export default function CreateNotes( {url, user, setNotes} ) {
         type="text"
         onChange={handleTitle}
       />
+      <br></br>
       <input
         aria-label="description"
         placeholder="Description"
@@ -44,9 +46,11 @@ export default function CreateNotes( {url, user, setNotes} ) {
         type="text"
         onChange={handleDescription}
       />
+      <br></br>
       <button
         type="submit"
         onClick={handleSubmit}
+        className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
       >
         Submit
       </button>

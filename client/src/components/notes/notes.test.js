@@ -6,7 +6,11 @@ afterEach(cleanup);
 
 describe("Notes", () => {
   it("Renders a form to create notes and displays notes", () => {
-    render(<Notes />)
+    const fakeUser = {
+      id: "123"
+    }
+
+    render(<Notes user={fakeUser}/>)
     const titleEl = screen.getByLabelText("title");
     expect(titleEl.value).toBe("");
     expect(titleEl.placeholder).toBe("Title");
