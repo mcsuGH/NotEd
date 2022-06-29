@@ -12,7 +12,7 @@ describe("Display Notes", () => {
     render(<DisplayNotes notes={notesFromApi}/>)
     expect(screen.getByText("hi")).toBeInTheDocument();
     expect(screen.getByText("bye")).toBeInTheDocument();
-    expect(screen.getByText("13/06/22")).toBeInTheDocument();
+    expect(screen.getByText("Monday, June 13 2022")).toBeInTheDocument();
   })
 
   it("when there are no notes, it says there are no notes", () => {
