@@ -5,7 +5,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 afterEach(cleanup);
 
 describe("Display Notes", () => {
-  it("Displays the notes with the title, description and date", () => {
+  it("Displays the notes with the title, description and date with a hide button", () => {
     const notesFromApi = [
         {title: "hi", description: "bye", createdAt: new Date(2022, 5, 13)},
     ];
@@ -13,6 +13,7 @@ describe("Display Notes", () => {
     expect(screen.getByText("hi")).toBeInTheDocument();
     expect(screen.getByText("bye")).toBeInTheDocument();
     expect(screen.getByText("Monday, June 13 2022")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Hide" })).toBeInTheDocument();
   })
 
   it("when there are no notes, it says there are no notes", () => {

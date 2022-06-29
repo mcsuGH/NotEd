@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
+import axios from 'axios';
 
-export default function DisplayNotes({ notes }) {
+export default function DisplayNotes({ notes, url }) {
   const formatDate = (date) => {
     return dayjs(date).format("dddd, MMMM DD YYYY")
   }
@@ -18,16 +19,23 @@ export default function DisplayNotes({ notes }) {
     9: "green-500 -rotate-2",
   }
 
+  const hideNote = (id) => {
+    console.log(id);
+    axios.post(`${url}/server/notes/update/${id}`)
+  }
+
   const displayNote = (noteInfo, key) => {
     return (
       <div className={`note-${key}`} key={key.toString()}>
         <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12`}>
-          <div className="underline decoration-dotted uppercase font-mono font-semibold">
-            {noteInfo.title}
+          <div className="flex flex-1">
+            <div className="underline decoration-dotted uppercase font-mono font-semibold">
+              {noteInfo.title}
+            </div>
+            <button onClick={() => hideNote(noteInfo._id)}>
+              Hide
+            </button>
           </div>
-          <button >
-            Remove
-          </button>
           <br></br>
           <div className="font-mono">
             {formatDate(noteInfo.createdAt)}

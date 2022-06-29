@@ -24,10 +24,17 @@ const NotesController = {
     })
   },
 
-  Update: (req,res) => {
-    Note.findOneAndUpdate(
-      { id: req.params.id },
-      { hidden: true }
+  Update: (req, res) => {
+    Note.updateOne(
+      { _id: req.params.id },
+      { hidden: true },
+      {},
+      (err, doc) => {
+        if (err) {
+          throw err;
+        }
+        res.send("Note hidden");
+      }
     )
   }
 }
