@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function CreateNotes( {url, user, setNotes} ) {
+export default function CreateNotes( {url, user, notes, setNotes} ) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [message, setMessage] = useState(null);
 
   const handleTitle = ({ target }) => {
     setTitle(target.value);
@@ -14,18 +15,23 @@ export default function CreateNotes( {url, user, setNotes} ) {
   };
 
   const handleSubmit = () => {
-    const newNote = { 
-      title: title, 
-      description: description,
-      userId: user.id,
-      hidden: false,
+    if (notes.length < 10) { 
+      setMessage(null)
+      const newNote = { 
+        title: title, 
+        description: description,
+        userId: user.id,
+        hidden: false,
+      }
+      axios
+        .post(`${url}/server/notes/create`, newNote)
+        .then((res) => {
+          let createdNote = res.data
+          setNotes((prevNotes) => [createdNote, ...prevNotes]
+        )});
+    } else {
+      setMessage("You can only have 10 notes at a time")
     }
-    axios
-      .post(`${url}/server/notes/create`, newNote)
-      .then((res) => {
-        let createdNote = res.data
-        setNotes((prevNotes) => [createdNote, ...prevNotes]
-      )});
   };
 
   return (
@@ -55,6 +61,10 @@ export default function CreateNotes( {url, user, setNotes} ) {
       >
         Submit
       </button>
+      <br></br>
+      <p>
+        {message}
+      </p>
     </div>
   )
 }

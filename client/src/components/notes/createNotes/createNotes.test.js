@@ -23,4 +23,11 @@ describe("Create Notes", () => {
     const submitEl = screen.getByRole("button", { name: "Submit" });
     expect(submitEl).toBeInTheDocument();
   });
+
+  it("cannot create a new note if there is already ten notes", () => {
+    render(<CreateNotes notes={[0,1,2,3,4,5,6,7,8,9]}/>);
+
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    expect(screen.getByText("You can only have 10 notes at a time")).toBeInTheDocument();
+  });
 });
