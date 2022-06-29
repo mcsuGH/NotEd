@@ -17,7 +17,7 @@ export default function Notes( {url, user} ) {
   return (
     <div>
       <CreateNotes url={url} user={user} setNotes={setNotes}/>
-      <DisplayNotes notes={notes} url={url} />
+      <DisplayNotes url={url} notes={notes} setNotes={setNotes}/>
     </div>
   )
 }
