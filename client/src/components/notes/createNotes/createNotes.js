@@ -41,43 +41,43 @@ export default function CreateNotes( {url, user, notes, setNotes} ) {
 
   return (
     <div className="flex flex-1 grid">
-    <div className="bg-gray-200 h-72 w-72 place-self-center font-mono">
       <br></br>
-      Create Note:
-      <br></br>
-      <br></br>
-      <input
-        aria-label="title"
-        placeholder="Title"
-        id="title"
-        type="text"
-        className="bg-gray-200 border-dashed"
-        onChange={handleTitle}
-      />
-      <br></br>
-      <br></br>
-      <input
-        aria-label="description"
-        placeholder="Description"
-        id="description"
-        type="text"
-        className="bg-gray-200 border-dashed"
-        onChange={handleDescription}
-      />
-      <br></br>
-      <br></br>
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
-      >
-        Create
-      </button>
-      <br></br>
+      <div className="bg-gray-200 h-72 w-72 place-self-center font-mono">
+        <br></br>
+        Create Note:
+        <br></br>
+        <br></br>
+        <input
+          aria-label="title"
+          placeholder="Title"
+          id="title"
+          type="text"
+          className="bg-gray-200 border-dashed"
+          onChange={handleTitle}
+        />
+        <br></br>
+        <br></br>
+        <input
+          aria-label="description"
+          placeholder="Description"
+          id="description"
+          type="text"
+          className="bg-gray-200 border-dashed"
+          onChange={handleDescription}
+        />
+        <br></br>
+        <br></br>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
+        >
+          Create
+        </button>
+      </div>
       <p>
         {message}
       </p>
-    </div>
     </div>
   )
 }

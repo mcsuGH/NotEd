@@ -28,21 +28,21 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   const displayNote = (noteInfo, key) => {
     return (
       <div className={`note-${key}`} key={key.toString()}>
-        <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12`}>
+        <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12 font-mono`}>
           <div className="flex flex-1">
-            <div className="underline decoration-dotted uppercase font-mono font-semibold w-4/5">
+            <div className="underline decoration-dotted uppercase font-semibold w-4/5">
               {noteInfo.title}
             </div>
-            <button onClick={() => hideNote(noteInfo._id)} className="font-mono bg-black text-white">
+            <button onClick={() => hideNote(noteInfo._id)} className="bg-black text-white">
               hide
             </button>
           </div>
           <br></br>
-          <div className="font-mono">
+          <div>
             {formatDate(noteInfo.createdAt)}
           </div>
           <br></br>
-          <div className="font-mono">
+          <div>
             {noteInfo.description}
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   const checkNotes = () => {
     if (!notes || notes.length === 0 ) {
       return (
-        <div className="font-mono">You have no notes</div>
+        <p className="font-mono">You have no notes</p>
       )
     } else {
       return (
