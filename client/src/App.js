@@ -3,10 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import axios from 'axios'
 import './App.css';
 
-import SignIn from "./components/authentication/signIn/signIn"
-import SignUp from "./components/authentication/signUp/signUp"
-import Notes from "./components/notes/notes"
-import Calendar from "./components/calendarEvents/calendar"
+import Header from "./components/header/header";
+import SignIn from "./components/authentication/signIn/signIn";
+import SignUp from "./components/authentication/signUp/signUp";
+import Notes from "./components/notes/notes";
+import Calendar from "./components/calendarEvents/calendar";
 
 export default function App() {
   let url;
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
