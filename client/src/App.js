@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header user={user} />
       <Routes>
         <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
