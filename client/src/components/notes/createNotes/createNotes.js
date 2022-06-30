@@ -34,11 +34,6 @@ export default function CreateNotes( {url, user, notes, setNotes} ) {
     }
   };
 
-  // <div className={`note-${key}`} key={key.toString()}>
-  // <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12`}>
-  //   <div className="flex flex-1">
-  //     <div className="underline decoration-dotted uppercase font-mono font-semibold w-4/5">
-
   return (
     <div className="flex flex-1 grid">
       <br></br>

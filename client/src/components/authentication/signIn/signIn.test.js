@@ -6,7 +6,7 @@ afterEach(cleanup);
 
 describe("Sign In", () => {
   it("renders a form to log a user in", () => {
-    render(<SignIn user={{}}/>);
+    render(<SignIn />);
 
     const emailEl = screen.getByLabelText("email");
     expect(emailEl.value).toBe("");
@@ -22,5 +22,14 @@ describe("Sign In", () => {
 
     const submitEl = screen.getByRole("button", { name: "Log In" });
     expect(submitEl).toBeInTheDocument();
+  });
+
+  it("welcomes user after login", () => {
+    const fakeUser = {
+      username: "bob@bob.com"
+    }
+    render(<SignIn user={fakeUser}/>);
+
+    expect(screen.getByText("Welcome bob@bob.com!")).toBeInTheDocument();
   });
 });
