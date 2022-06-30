@@ -18,6 +18,11 @@ const SessionsController = {
       }
     })(req, res, next);
   },
+
+  Logout: (req, res) => {
+    res.clearCookie("connect.sid");
+    res.send("test");
+  }
 }
 
 module.exports = SessionsController;
