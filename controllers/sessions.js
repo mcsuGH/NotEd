@@ -21,7 +21,7 @@ const SessionsController = {
 
   Logout: (req, res) => {
     res.clearCookie("connect.sid");
-    res.send("test");
+    res.send("Logged out");
   }
 }
 
