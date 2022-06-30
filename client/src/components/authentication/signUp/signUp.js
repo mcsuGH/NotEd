@@ -19,28 +19,35 @@ export default function SignUp( {url} ) {
   };
 
   return (
-    <div className="form">
-      Register:
-      <input
-        aria-label="email"
-        placeholder="Email"
-        id="email"
-        type="email"
-        onChange={handleEmail}
-      />
-      <input
-        aria-label="password"
-        placeholder="Password"
-        id="password"
-        type="password"
-        onChange={handlePassword}
-      />
-      <button
-        type="submit"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
+    <div className="flex flex-1 grid">
+      <br></br>
+      <div className="block bg-gray-200 h-full w-1/5 place-self-center">
+        Register:
+        <br></br>
+        <input
+          aria-label="email"
+          placeholder="Email"
+          id="email"
+          type="email"
+          onChange={handleEmail}
+        />
+        <br></br>
+        <input
+          aria-label="password"
+          placeholder="Password"
+          id="password"
+          type="password"
+          onChange={handlePassword}
+        />
+        <br></br>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
+        >
+          Submit
+        </button>
+      </div>
     </div>
   )
 }
