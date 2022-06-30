@@ -30,8 +30,8 @@ describe("Header", () => {
     }
     render(<Header user={fakeUser}/>);
 
-    const logoutLink = screen.getByRole("link", { name: "Logout" });
-    expect(logoutLink.getAttribute("href")).toBe("/");
+    const logoutLink = screen.getByRole("button", { name: "Logout" });
+    expect(logoutLink).toBeInTheDocument();
 
     const premiumLink = screen.getByRole("link", { name: "Premium" });
     expect(premiumLink.getAttribute("href")).toBe("/premium");
