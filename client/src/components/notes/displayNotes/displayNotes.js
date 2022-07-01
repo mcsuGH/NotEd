@@ -53,7 +53,7 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   const checkNotes = () => {
     if (!notes || notes.length === 0 ) {
       return (
-        <p className="font-mono">You have no notes</p>
+        <p className="font-mono text-red-500">You have no notes</p>
       )
     } else {
       return (
