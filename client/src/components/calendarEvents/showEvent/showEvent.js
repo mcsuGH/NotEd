@@ -35,7 +35,7 @@ export default function ShowEvent( {url, event, setEventSelected, setData} ) {
             <p
               aria-label="showTitle"
               id="showTitle"
-              className="pt-2 pb-2 border-0 text-gray-600 text-xl font-semibold pb-2 w-full h-28 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 overflow-auto"
+              className="pt-2 pb-2 border-0 text-gray-600 text-xl font-semibold pb-2 w-full h-28 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 overflow-auto break-all"
             >
               {event.title}
             </p>
@@ -43,7 +43,7 @@ export default function ShowEvent( {url, event, setEventSelected, setData} ) {
             <p
               aria-label="showDescription"
               id="showDescription"
-              className="pt-2 pb-2 border-0 text-gray-600 w-full h-40 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 overflow-auto"
+              className="pt-2 pb-2 border-0 text-gray-600 w-full h-40 border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500 overflow-auto break-all"
             >
               {event.description}
             </p>

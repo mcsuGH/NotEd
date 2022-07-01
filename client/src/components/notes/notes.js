@@ -26,9 +26,9 @@ export default function Notes( {url, user} ) {
       <div>
         <br></br>
         <div className="note block bg-gray-200 float-left px-2 py-10  h-11/12 w-11/12">
-          <p className="font-bold">{note.title}</p>
+          <p className="font-bold break-all">{note.title}</p>
           <br></br>
-          {note.description}
+          <p className="break-all">{note.description}</p>
         </div>
       </div>
     )

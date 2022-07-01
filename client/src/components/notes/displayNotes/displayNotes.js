@@ -30,7 +30,7 @@ export default function DisplayNotes({ url, notes, setNotes }) {
       <div className={`note-${key}`} key={key.toString()}>
         <div className={`note block bg-${noteCSS[key]} float-left px-2 py-10  h-11/12 w-11/12 font-mono`}>
           <div className="flex flex-1">
-            <div className="underline decoration-dotted uppercase font-semibold w-4/5">
+            <div className="underline decoration-dotted uppercase font-semibold w-4/5 break-all">
               {noteInfo.title}
             </div>
             <button onClick={() => hideNote(noteInfo._id)} className="hover:bg-black text-white">
@@ -42,7 +42,7 @@ export default function DisplayNotes({ url, notes, setNotes }) {
             {formatDate(noteInfo.createdAt)}
           </div>
           <br></br>
-          <div>
+          <div className="break-all">
             {noteInfo.description}
           </div>
         </div>
