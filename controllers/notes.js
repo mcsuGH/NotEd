@@ -36,7 +36,19 @@ const NotesController = {
         res.send("Note hidden");
       }
     )
-  }
+  },
+
+  Hidden: (req, res) => {
+    Note.find({ userId: req.params.userId, hidden: true }).exec((err, notes) => {
+      if (err) {
+        throw err;
+      }
+      let reverseOrder = notes.reverse();
+      res.json({
+        notes: reverseOrder,
+      });
+    });
+  },
 }
 
 module.exports = NotesController;
