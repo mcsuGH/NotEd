@@ -33,7 +33,7 @@ export default function DisplayNotes({ url, notes, setNotes }) {
             <div className="underline decoration-dotted uppercase font-semibold w-4/5">
               {noteInfo.title}
             </div>
-            <button onClick={() => hideNote(noteInfo._id)} className="bg-black text-white">
+            <button onClick={() => hideNote(noteInfo._id)} className="hover:bg-black text-white">
               hide
             </button>
           </div>

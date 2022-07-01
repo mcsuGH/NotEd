@@ -15,9 +15,17 @@ export default function Notes( {url, user} ) {
   }, [setNotes, url, user.id])
 
   return (
-    <div>
-      <CreateNotes url={url} user={user} notes={notes} setNotes={setNotes}/>
-      <DisplayNotes url={url} notes={notes} setNotes={setNotes}/>
+    <div>      
+      <br></br>
+      <div className="flex flex-1 grid grid-cols-6 p-2">
+        <div className="p-2">
+          <br></br>
+          <CreateNotes url={url} user={user} notes={notes} setNotes={setNotes}/>
+        </div>
+        <div className="col-span-5 p-2">
+          <DisplayNotes url={url} notes={notes} setNotes={setNotes}/>
+        </div>
+      </div>
     </div>
   )
 }
