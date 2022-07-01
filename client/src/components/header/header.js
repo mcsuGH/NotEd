@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import header from '../../images/header.png';
 
 export default function Header ({url, user}) {
   const logOut = () => {
@@ -33,7 +34,15 @@ export default function Header ({url, user}) {
 
   return (
     <div>
-      {user ? whenLoggedIn() : notLoggedIn()}
+      <div className="bg-blue-300 flex flex-1 grid">
+        <div className="w-1/6 place-self-center">
+          <img
+            src={header}
+            alt=""
+          />
+        </div>
+        {user ? whenLoggedIn() : notLoggedIn()}
+      </div>
     </div>
   )
 }

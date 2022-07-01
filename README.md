@@ -1,5 +1,5 @@
 # NotEd
-![Screenshot](https://i.imgur.com/SvfX0Zm.png)
+![Screenshot](https://i.imgur.com/eLzuLRu.png)
 
 # Task
 NotEd is a solo project that I decided to create to help consolidate the learnings from working on my final team project at [Makers Academy (EdUp)](https://github.com/jmcnally17/EdUp). I will be attempting to recreate many features from this project and repurposing them to work for a notekeeping app instead, hence the name NotEd.\
