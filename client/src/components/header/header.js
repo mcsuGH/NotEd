@@ -6,16 +6,19 @@ export default function Header ({url, user}) {
   const logOut = () => {
     axios
       .post(`${url}/server/sessions/logout`, { withCredentials: true })
+      .then(() => {
+        window.location.href = '/';
+      });
   }
 
   const whenLoggedIn = () => {
     return (
       <div className= "flex-1 grid grid-cols-5">
-        <button onClick={()=>logOut()}>Logout</button>
-        <a href="/premium">Premium</a>
-        <a href="/notes">Notes</a>
-        <a href="/calendar">Calendar</a>
-        <a href="https://github.com/mcsuGH/NotEd">About Us</a>
+        <button className="border border-black" onClick={()=>logOut()}>Logout</button>
+        <a className="border border-black" href="/premium">Premium</a>
+        <a className="border border-black" href="/notes">Notes</a>
+        <a className="border border-black" href="/calendar">Calendar</a>
+        <a className="border border-black" href="https://github.com/mcsuGH/NotEd">About Us</a>
       </div>
     )
   }
@@ -23,11 +26,11 @@ export default function Header ({url, user}) {
   const notLoggedIn = () => {
     return (
       <div className= "flex-1 grid grid-cols-5">
-        <a href="/">Login</a>
-        <a href="/register">Register</a>
-        <a href="/notes">Notes</a>
-        <a href="/calendar">Calendar</a>
-        <a href="https://github.com/mcsuGH/NotEd">About Us</a>
+        <a className="border border-black" href="/">Login</a>
+        <a className="border border-black" href="/register">Register</a>
+        <a className="border border-black" href="/notes">Notes</a>
+        <a className="border border-black" href="/calendar">Calendar</a>
+        <a className="border border-black" href="https://github.com/mcsuGH/NotEd">About Us</a>
       </div>
     )
   }
