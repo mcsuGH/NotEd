@@ -5,6 +5,7 @@ import CreateNotes from "./createNotes/createNotes";
 
 export default function Notes( {url, user} ) {
   const [notes, setNotes] = useState([]);
+  const [hidden, setHidden] = useState([]);
 
   useEffect(() => {
     if (url && user.id) {
@@ -13,6 +14,22 @@ export default function Notes( {url, user} ) {
       });
     }
   }, [setNotes, url, user.id])
+
+  const fetchHiddenNotes = () => {
+    axios.get(`${url}/server/notes/hidden/${user.id}`).then((res) => {
+      setHidden(res.data.notes);
+    });
+  }
+
+  const displayNote = (note) => {
+    return (
+      <div>
+        {note.title}
+        <br></br>
+        {note.description}
+      </div>
+    )
+  }
 
   return (
     <div>      
@@ -25,6 +42,16 @@ export default function Notes( {url, user} ) {
         <div className="col-span-5 p-2">
           <DisplayNotes url={url} notes={notes} setNotes={setNotes}/>
         </div>
+      </div>
+      <br></br>
+      <button 
+        className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
+        onClick={()=>fetchHiddenNotes()}
+      >
+        Old Notes
+      </button>
+      <div className="flex flex-1 grid grid-cols-5">
+        {hidden.map((note) => displayNote(note))}
       </div>
     </div>
   )
