@@ -30,7 +30,7 @@ export default function CreateNotes( {url, user, notes, setNotes} ) {
           setNotes((prevNotes) => [createdNote, ...prevNotes]
         )});
     } else {
-      setMessage("You can only have 10 notes at a time")
+      setMessage("Maximum limit of 10 notes")
     }
   };
 
@@ -69,10 +69,10 @@ export default function CreateNotes( {url, user, notes, setNotes} ) {
         >
           Create
         </button>
+        <p className="text-red-500">
+          {message}
+        </p>
       </div>
-      <p>
-        {message}
-      </p>
     </div>
   )
 }

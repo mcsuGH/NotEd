@@ -28,6 +28,6 @@ describe("Create Notes", () => {
     render(<CreateNotes notes={[0,1,2,3,4,5,6,7,8,9]}/>);
 
     fireEvent.click(screen.getByRole("button", { name: "Create" }));
-    expect(screen.getByText("You can only have 10 notes at a time")).toBeInTheDocument();
+    expect(screen.getByText("Maximum limit of 10 notes")).toBeInTheDocument();
   });
 });
