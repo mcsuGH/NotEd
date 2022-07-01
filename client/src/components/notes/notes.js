@@ -24,9 +24,12 @@ export default function Notes( {url, user} ) {
   const displayNote = (note) => {
     return (
       <div>
-        {note.title}
         <br></br>
-        {note.description}
+        <div className="note block bg-gray-200 float-left px-2 py-10  h-11/12 w-11/12">
+          <p className="font-bold">{note.title}</p>
+          <br></br>
+          {note.description}
+        </div>
       </div>
     )
   }
