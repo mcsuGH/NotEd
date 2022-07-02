@@ -8,15 +8,15 @@ export default function Notes( {url, user} ) {
   const [hidden, setHidden] = useState([]);
 
   useEffect(() => {
-    if (url && user._id) {
-      axios.get(`${url}/server/notes/${user._id}`).then((res) => {
+    if (url && user.id) {
+      axios.get(`${url}/server/notes/${user.id}`).then((res) => {
         setNotes(res.data.notes);
       });
     }
-  }, [setNotes, url, user._id])
+  }, [setNotes, url, user.id])
 
   const fetchHiddenNotes = () => {
-    axios.get(`${url}/server/notes/hidden/${user._id}`).then((res) => {
+    axios.get(`${url}/server/notes/hidden/${user.id}`).then((res) => {
       setHidden(res.data.notes);
     });
   }

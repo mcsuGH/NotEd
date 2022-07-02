@@ -14,8 +14,10 @@ export default function SignIn( { url, setUser, user } ) {
       .post(`${url}/server/sessions`, user, {
         withCredentials: true,
       })
-      .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data))
+      .then(() => {
+        axios.get(`${url}/server/users`, { withCredentials: true })
+        .then((res) => localStorage.setItem("user", JSON.stringify(res.data)))
+        .then(() => window.location.href = '/notes');
       })
   };
 

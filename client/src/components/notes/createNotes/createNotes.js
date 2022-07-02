@@ -20,7 +20,7 @@ export default function CreateNotes( {url, user, notes, setNotes} ) {
       const newNote = { 
         title: title, 
         description: description,
-        userId: user._id,
+        userId: user.id,
         hidden: false,
       }
       axios
