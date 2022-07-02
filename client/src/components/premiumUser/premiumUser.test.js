@@ -6,9 +6,20 @@ afterEach(cleanup);
 
 describe('PremiumUser', () => {
   it("renders a button which takes you to a page to pay for upgrade", () => {
-    render(<PremiumUser />);
+    const fakeUser = {
+      premium: false
+    }
+    render(<PremiumUser user={fakeUser} />);
 
     const premiumEl = screen.getByRole("button", { name: "Premium" });
     expect(premiumEl).toBeInTheDocument();
+  })
+
+  it("thanks the user if already premium", () => {
+    const fakeUser = {
+      premium: true
+    }
+    render(<PremiumUser user={fakeUser} />);
+    expect(screen.getByText("Thanks for the support!")).toBeInTheDocument();
   })
 })

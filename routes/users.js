@@ -4,6 +4,6 @@ const UsersController = require("../controllers/users")
 
 router.get("/", UsersController.Index);
 router.post("/create", UsersController.Create);
-router.post("/premium/:id", UsersController.Premium);
+router.get("/premium/:id", UsersController.Premium);
 
 module.exports = router;

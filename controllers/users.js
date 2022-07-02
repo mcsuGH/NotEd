@@ -25,7 +25,7 @@ const UsersController = {
 
   Premium: (req, res) => {
     User.updateOne(
-      { id: req.params.id },
+      { _id: req.params.id },
       { premium: true },
       {},
       (err, user) => {

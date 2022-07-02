@@ -7,6 +7,7 @@ import SignIn from "./components/authentication/signIn/signIn";
 import SignUp from "./components/authentication/signUp/signUp";
 import Notes from "./components/notes/notes";
 import Calendar from "./components/calendarEvents/calendar";
+import Premium from "./components/premiumUser/premiumUser";
 
 export default function App() {
   let url;
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/register" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url} user={user}/>} />
         <Route path="/calendar" element={<Calendar url={url} user={user}/>} />
+        <Route path="/premium" element={<Premium url={url} user={user}/>} />
       </Routes>
     </div>
   );
