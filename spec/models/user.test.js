@@ -13,9 +13,11 @@ describe(User, () => {
     const user = new User({
       username: "email",
       password: "password",
+      premium: true
     });
 
     expect(user.username).toBe("email");
     expect(user.password).toBe("password");
+    expect(user.premium).toBe(true);
   })
 })

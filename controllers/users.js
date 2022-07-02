@@ -21,6 +21,20 @@ const UsersController = {
         res.send("User Created");
       }
     });
+  },
+
+  Premium: (req, res) => {
+    User.updateOne(
+      { id: req.params.id },
+      { premium: true },
+      {},
+      (err, user) => {
+        if (err) {
+          throw err;
+        }
+        res.send("Thanks!");
+      }
+    )
   }
 }
 
