@@ -7,6 +7,7 @@ export default function Header ({url, user}) {
     axios
       .post(`${url}/server/sessions/logout`, { withCredentials: true })
       .then(() => {
+        localStorage.clear()
         window.location.href = '/';
       });
   }

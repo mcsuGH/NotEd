@@ -15,9 +15,9 @@ export default function SignIn( { url, setUser, user } ) {
         withCredentials: true,
       })
       .then((res) => {
-        setUser(res.data)
+        localStorage.setItem("user", JSON.stringify(res.data))
       })
-  };  
+  };
 
   const loginForm = () => {
     return (

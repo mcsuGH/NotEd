@@ -8,22 +8,22 @@ export default function Notes( {url, user} ) {
   const [hidden, setHidden] = useState([]);
 
   useEffect(() => {
-    if (url && user.id) {
-      axios.get(`${url}/server/notes/${user.id}`).then((res) => {
+    if (url && user._id) {
+      axios.get(`${url}/server/notes/${user._id}`).then((res) => {
         setNotes(res.data.notes);
       });
     }
-  }, [setNotes, url, user.id])
+  }, [setNotes, url, user._id])
 
   const fetchHiddenNotes = () => {
-    axios.get(`${url}/server/notes/hidden/${user.id}`).then((res) => {
+    axios.get(`${url}/server/notes/hidden/${user._id}`).then((res) => {
       setHidden(res.data.notes);
     });
   }
 
-  const displayNote = (note) => {
+  const displayNote = (note, key) => {
     return (
-      <div>
+      <div key={key}>
         <br></br>
         <div className="note block bg-gray-200 float-left px-2 py-10  h-11/12 w-11/12">
           <p className="font-bold break-all overflow-auto max-h-12">{note.title}</p>
@@ -54,7 +54,7 @@ export default function Notes( {url, user} ) {
         Old Notes
       </button>
       <div className="flex flex-1 grid grid-cols-5">
-        {hidden.map((note) => displayNote(note))}
+        {hidden.map((note, key) => displayNote(note, key))}
       </div>
     </div>
   )

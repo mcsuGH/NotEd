@@ -33,14 +33,14 @@ export default function Calendar({url, user}) {
 
   useEffect(() => {
     const fetchEvents = () => {
-      if (user.id && url) {
-        axios.get(`${url}/server/calendar/${user.id}`).then((res) => {
+      if (user._id && url) {
+        axios.get(`${url}/server/calendar/${user._id}`).then((res) => {
           setData(res.data);
         });
       }
     }
     fetchEvents()
-  }, [url, user.id])
+  }, [url, user._id])
 
   return (
     <React.Fragment>

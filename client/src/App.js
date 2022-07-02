@@ -17,19 +17,14 @@ export default function App() {
     url = "http://localhost:9000";
   }
 
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    axios
-    .get(`${url}/server/users`, { withCredentials: true }) 
-    .then((res) => setUser(res.data));
-  }, [url]);
+  const userString = localStorage.getItem("user")
+  const user = JSON.parse(userString)
 
   return (
     <div className="App">
       <Header url={url} user={user} />
       <Routes>
-        <Route path="/" element={<SignIn url={url} setUser={setUser} user={user} />} />
+        <Route path="/" element={<SignIn url={url} user={user} />} />
         <Route path="/register" element={<SignUp url={url}/>} />
         <Route path="/notes" element={<Notes url={url} user={user}/>} />
         <Route path="/calendar" element={<Calendar url={url} user={user}/>} />

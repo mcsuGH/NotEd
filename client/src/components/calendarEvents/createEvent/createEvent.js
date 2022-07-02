@@ -28,7 +28,7 @@ export default function CreateEvent( {url, setData, setShowCreateEvent, daySelec
       description: description,
       date: daySelected.format("YYYY-MM-DD"),
       label: selectedLabel,
-      userId: user.id,
+      userId: user._id,
     }
     axios
       .post(`${url}/server/calendar/create`, newEvent)
