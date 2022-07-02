@@ -7,6 +7,7 @@ import OldNotes from "./oldNotes/oldNotes";
 export default function Notes( {url, user} ) {
   const [notes, setNotes] = useState([]);
   const [hidden, setHidden] = useState([]);
+  const [hiddenFetched, setHiddenFetched] = useState(false);
 
   useEffect(() => {
     if (url && user.id) {
@@ -17,9 +18,12 @@ export default function Notes( {url, user} ) {
   }, [setNotes, url, user.id])
 
   const fetchHiddenNotes = () => {
-    axios.get(`${url}/server/notes/hidden/${user.id}`).then((res) => {
-      setHidden(res.data.notes);
-    });
+    if (!hiddenFetched) {
+      axios.get(`${url}/server/notes/hidden/${user.id}`).then((res) => {
+        setHidden(res.data.notes);
+        setHiddenFetched(true);
+      });
+    }
   }
 
   return (
@@ -28,10 +32,10 @@ export default function Notes( {url, user} ) {
       <div className="flex flex-1 grid grid-cols-6 p-2">
         <div className="p-2">
           <br></br>
-          <CreateNotes url={url} user={user} notes={notes} setNotes={setNotes}/>
+          <CreateNotes url={url} user={user} notes={notes} setNotes={setNotes} />
         </div>
         <div className="col-span-5 p-2">
-          <DisplayNotes url={url} notes={notes} setNotes={setNotes}/>
+          <DisplayNotes url={url} notes={notes} setNotes={setNotes} setHidden={setHidden} hiddenFetched={hiddenFetched} />
         </div>
       </div>
       <br></br>

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import axios from 'axios';
 
-export default function DisplayNotes({ url, notes, setNotes }) {
+export default function DisplayNotes({ url, notes, setNotes, setHidden, hiddenFetched }) {
   const formatDate = (date) => {
     return dayjs(date).format("dddd, MMMM DD YYYY")
   }
@@ -22,7 +22,13 @@ export default function DisplayNotes({ url, notes, setNotes }) {
   const hideNote = (id) => {
     axios
       .post(`${url}/server/notes/update/${id}`)
-      .then(setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id)));
+      .then(() => {
+        if (hiddenFetched) {
+          let hiddenNote = notes.filter((note) => note._id === id)
+          setHidden((prevHidden) => [ hiddenNote[0], ...prevHidden])
+        }
+        setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id));
+      })
   }
 
   const displayNote = (noteInfo, key) => {
