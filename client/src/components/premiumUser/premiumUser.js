@@ -11,7 +11,8 @@ export default function PremiumUser ({url, user}) {
         newUser["premium"] = true
         let newUserString = JSON.stringify(newUser)
         localStorage.setItem("user", newUserString)
-      }).then(()=> window.location.href = '/premium')
+      })
+      .then(()=> window.location.href = '/premium')
   }
 
   const notPremium = () => {
