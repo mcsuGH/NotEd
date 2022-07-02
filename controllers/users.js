@@ -15,6 +15,7 @@ const UsersController = {
         const newUser = new User({
           username: req.body.username,
           password: hashedPassword,
+          premium: req.body.premium,
         });
         
         await newUser.save();

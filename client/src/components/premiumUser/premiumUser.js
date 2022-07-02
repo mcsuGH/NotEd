@@ -3,7 +3,15 @@ import axios from 'axios';
 
 export default function PremiumUser ({url, user}) {
   const updateUser = () => {
-    axios.get(`${url}/server/users/premium/${user.id}`)
+    axios
+      .get(`${url}/server/users/premium/${user.id}`)
+      .then(()=>{
+        let userString = localStorage.getItem("user");
+        let newUser = JSON.parse(userString);
+        newUser["premium"] = true
+        let newUserString = JSON.stringify(newUser)
+        localStorage.setItem("user", newUserString)
+      }).then(()=> window.location.href = '/premium')
   }
 
   const notPremium = () => {
