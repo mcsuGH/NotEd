@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 export default function OldNotes ({hidden, fetchHiddenNotes}) {
+  const [toggle, setToggle] = useState(false)
+
+  const displayOldNotes = () => {
+    fetchHiddenNotes()
+    setToggle(!toggle)
+  }
+
   const displayNote = (note, key) => {
     return (
       <div key={key}>
@@ -18,12 +25,12 @@ export default function OldNotes ({hidden, fetchHiddenNotes}) {
     <div>
       <button 
         className="bg-white-500 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 border border-gray-500 rounded"
-        onClick={()=>fetchHiddenNotes()}
+        onClick={()=>displayOldNotes()}
       >
         Old Notes
       </button>
       <div className="flex flex-1 grid grid-cols-5">
-        {hidden.map((note, key) => displayNote(note, key))}
+        {toggle && hidden.map((note, key) => displayNote(note, key))}
       </div>
     </div>
   )
