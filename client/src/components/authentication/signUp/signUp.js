@@ -4,6 +4,7 @@ import axios from "axios";
 export default function SignUp( {url} ) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(<br></br>);
 
   const handleEmail = ({ target }) => {
     setEmail(target.value);
@@ -15,12 +16,18 @@ export default function SignUp( {url} ) {
 
   const handleSubmit = () => {
     const newUser = { username: email, password: password, premium: false }
-    axios.post(`${url}/server/users/create`, newUser);
+    axios
+      .post(`${url}/server/users/create`, newUser)
+      .catch((error) => {
+        setMessage("Register failed")
+        throw error
+      })
+      .then(() => window.location.href = '/')
   };
 
   return (
     <div className="flex flex-1 grid">
-      <br></br>
+      {message}
       <div className="block bg-gray-200 h-full w-1/5 place-self-center">
         Register:
         <br></br>

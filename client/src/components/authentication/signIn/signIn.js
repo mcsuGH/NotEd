@@ -4,6 +4,7 @@ import axios from "axios";
 export default function SignIn( { url, setUser, user } ) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(<br></br>);
 
   const handleSubmit = () => {
     const user = { 
@@ -13,6 +14,10 @@ export default function SignIn( { url, setUser, user } ) {
     axios
       .post(`${url}/server/sessions`, user, {
         withCredentials: true,
+      })
+      .catch((error) => {
+        setMessage("Login failed")
+        throw error
       })
       .then(() => {
         axios.get(`${url}/server/users`, { withCredentials: true })
@@ -24,7 +29,7 @@ export default function SignIn( { url, setUser, user } ) {
   const loginForm = () => {
     return (
       <div className="flex flex-1 grid">
-        <br></br>
+        <p className="text-red-500">{message}</p>
         <div className="block bg-gray-200 h-full w-1/5 place-self-center">
           Login:
           <br></br>
