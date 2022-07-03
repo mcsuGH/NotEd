@@ -4,7 +4,9 @@ export default function OldNotes ({hidden, fetchHiddenNotes}) {
   const [toggle, setToggle] = useState(false)
 
   const displayOldNotes = () => {
-    fetchHiddenNotes()
+    if (hidden.length === 0) {
+      fetchHiddenNotes()
+    }
     setToggle(!toggle)
   }
 

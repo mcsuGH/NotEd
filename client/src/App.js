@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 
 import Header from "./components/header/header";
@@ -29,6 +29,8 @@ export default function App() {
         <Route path="/notes" element={<Notes url={url} user={user}/>} />
         <Route path="/calendar" element={<Calendar url={url} user={user}/>} />
         <Route path="/premium" element={<Premium url={url} user={user}/>} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   );
