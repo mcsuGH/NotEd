@@ -2,7 +2,6 @@ var passport = require('passport');
 
 const SessionsController = {
   Login: (req, res, next) => {
-    console.log(req.body);
     passport.authenticate("local", (err, user, info) => {
       if (err) {
         throw err;

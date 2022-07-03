@@ -29,7 +29,7 @@ export default function CheckoutForm ({url, user}) {
         setClientSecret(res.data.clientSecret);
       });
     }
-  }, []);
+  }, [url]);
 
   const makePayment = async (event) => {
     event.preventDefault();
@@ -46,10 +46,36 @@ export default function CheckoutForm ({url, user}) {
     }
   }
 
+  const cardStyle = {
+    iconStyle: "solid",
+    hidePostalCode: true,
+    style: {
+      base: {
+        iconColor: "rgb(240, 57, 122)",
+        color: "rgb(240, 57, 122)",
+        fontSize: "16px",
+        fontFamily: '"Open Sans", sans-serif',
+        fontSmoothing: "antialiased",
+        "::placeholder": {
+          color: "#CFD7DF"
+        }
+      },
+      invalid: {
+        color: "#e5424d",
+        ":focus": {
+          color: "#303238"
+        }
+      }
+    }
+  }
+
   return (
     <div>
-      <form onSubmit={makePayment}>
-        <CardElement />
+      If you wish to help the website to keep running, it costs only £5.00 to upgrade your user to Premium status.
+      <br></br>
+      Premium Users are able to view their old notes that they have hidden.
+      <form onSubmit={makePayment} className="">
+        <CardElement options={cardStyle} />
         <button>Pay</button>
       </form>
       {message}
