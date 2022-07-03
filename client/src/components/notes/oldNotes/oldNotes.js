@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 export default function OldNotes ({hidden, fetchHiddenNotes}) {
   const displayNote = (note, key) => {
     return (
