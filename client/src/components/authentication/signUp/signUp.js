@@ -27,7 +27,7 @@ export default function SignUp( {url} ) {
 
   return (
     <div className="flex flex-1 grid">
-      {message}
+      <p className="text-red-500">{message}</p>
       <div className="block bg-gray-200 h-full w-1/5 place-self-center">
         Register:
         <br></br>
