@@ -2,7 +2,8 @@
 ![Screenshot](https://i.imgur.com/eLzuLRu.png)
 
 # Task
-[Welcome to notEdApp](https://noted-notedup.herokuapp.com/)
+[Welcome to notEdApp](https://noted-notedup.herokuapp.com/)!\
+\
 notEd is a solo project that I decided to create to help consolidate the learnings from working on my final team project at [Makers Academy (EdUp)](https://github.com/jmcnally17/EdUp).\
 \
 I have attempted to recreate many features from this project and repurposed them to work for a notekeeping app instead, hence the name notEdApp (not-Ed-Up).\
@@ -21,7 +22,7 @@ Technologies used:
 - [StripeAPI](https://stripe.com/) for our Payment system
 - [Jest](https://jestjs.io/) for testing
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing
-- [Github](https://github.com/jmcnally17/EdUp) for hosting code, version control and GithubActions used for CI/CD
+- [Github](https://github.com/mcsuGH/notEdApp.git) for hosting code, version control and GithubActions used for CI/CD
 
 # Instructions
 Visit https://noted-notedup.herokuapp.com/ or if you wish to run the app locally:
@@ -39,7 +40,7 @@ brew services start mongodb-community@5.0
 
 ## Setup Project
 ```
-git clone https://github.com/mcsuGH/NotEd.git notEdApp
+git clone https://github.com/mcsuGH/notEdApp.git notEdApp
 cd notEdApp
 npm install
 cd client

@@ -19,7 +19,7 @@ export default function Header ({url, user}) {
         <a className="border border-black" href="/premium">Premium</a>
         <a className="border border-black" href="/notes">Notes</a>
         <a className="border border-black" href="/calendar">Calendar</a>
-        <a className="border border-black" href="https://github.com/mcsuGH/NotEd">About Us</a>
+        <a className="border border-black" href="https://github.com/mcsuGH/notEdApp">About Us</a>
       </div>
     )
   }
