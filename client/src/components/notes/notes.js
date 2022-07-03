@@ -40,7 +40,7 @@ export default function Notes( {url, user} ) {
       </div>
       <br></br>
       <div className="col-span-5 p-2">
-          <OldNotes hidden={hidden} fetchHiddenNotes={fetchHiddenNotes}/>
+          {user.premium && <OldNotes hidden={hidden} fetchHiddenNotes={fetchHiddenNotes}/>}
         </div>
     </div>
   )
