@@ -1,24 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutForm from "./checkoutForm";
+
+const stripePromise = loadStripe("pk_test_51LHSPpApN9hcJxkaXALanCStGhi7eOTPytNUKm4q2IBtWtsLSnzUmzFSCcYNIWf8jq4gvYrzVAWFbOGe9N6nJV7L00aHvK7gDH")
 
 export default function PremiumUser ({url, user}) {
-  const updateUser = () => {
-    axios
-      .get(`${url}/server/users/premium/${user.id}`)
-      .then(()=>{
-        let userString = localStorage.getItem("user");
-        let newUser = JSON.parse(userString);
-        newUser["premium"] = true
-        let newUserString = JSON.stringify(newUser)
-        localStorage.setItem("user", newUserString)
-      })
-      .then(()=> window.location.href = '/premium')
-  }
-
   const notPremium = () => {
     return (
       <div>
-        <button onClick={updateUser}>Premium</button>
+        <Elements stripe={stripePromise}>
+          <CheckoutForm url={url} user={user}/>
+        </Elements>
       </div>
     )
   }

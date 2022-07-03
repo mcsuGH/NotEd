@@ -1,5 +1,8 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
+const stripe = require("stripe")(process.env.API_KEY);
+
 
 const UsersController = {
   Index: (req, res) => {
@@ -36,6 +39,17 @@ const UsersController = {
         res.send("Thanks!");
       }
     )
+  },
+
+  Checkout: async (req, res) => {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: 500,
+      currency: "gbp",
+    });
+
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
   }
 }
 
