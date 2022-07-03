@@ -24,12 +24,25 @@ export default function App() {
     <div className="App">
       <Header url={url} user={user} />
       <Routes>
-        <Route path="/" element={<SignIn url={url} user={user} />} />
-        <Route path="/register" element={<SignUp url={url}/>} />
-        <Route path="/notes" element={<Notes url={url} user={user}/>} />
-        <Route path="/calendar" element={<Calendar url={url} user={user}/>} />
-        <Route path="/premium" element={<Premium url={url} user={user}/>} />
-
+        <Route 
+          path="/" 
+          element={<SignIn url={url} user={user} />} 
+        />
+        <Route 
+          path="/register" 
+          element={<SignUp url={url}/>} 
+        />
+        <Route 
+          path="/notes" 
+          element={user ? <Notes url={url} user={user}/> : <Navigate to="/" />} 
+        />
+        <Route 
+          path="/calendar" 
+          element={user ? <Calendar url={url} user={user}/> : <Navigate to="/" />} />
+        <Route 
+          path="/premium" 
+          element={user ? <Premium url={url} user={user}/> : <Navigate to="/" />} 
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
