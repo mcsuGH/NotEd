@@ -43,6 +43,6 @@ describe("Header", () => {
     expect(calendarLink.getAttribute("href")).toBe("/calendar");
  
     const aboutLink = screen.getByRole("link", { name: "About Us" });
-    expect(aboutLink.getAttribute("href")).toBe("https://github.com/mcsuGH/NotEd");
+    expect(aboutLink.getAttribute("href")).toBe("https://github.com/mcsuGH/notEdApp");
   })
 })
