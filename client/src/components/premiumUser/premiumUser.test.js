@@ -11,8 +11,8 @@ describe('PremiumUser', () => {
     }
     render(<PremiumUser user={fakeUser} />);
 
-    const premiumEl = screen.getByRole("button", { name: "Premium" });
-    expect(premiumEl).toBeInTheDocument();
+    const payEl = screen.getByRole("button", { name: "Pay" });
+    expect(payEl).toBeInTheDocument();
   })
 
   it("thanks the user if already premium", () => {
